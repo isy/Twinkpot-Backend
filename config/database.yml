@@ -49,6 +49,6 @@ test:
 #
 production:
   <<: *default
-  database: twinkpot_production
-  username: twinkpot
+  database: twinkpot
+  username: <%= ENV['DATABASE_USER'] %>
   password: <%= ENV['TWINKPOT_DATABASE_PASSWORD'] %>
