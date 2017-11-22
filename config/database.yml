@@ -52,3 +52,4 @@ production:
   database: twinkpot
   username: <%= ENV['DATABASE_USER'] %>
   password: <%= ENV['TWINKPOT_DATABASE_PASSWORD'] %>
+  socket: /var/lib/mysql/mysql.sock
