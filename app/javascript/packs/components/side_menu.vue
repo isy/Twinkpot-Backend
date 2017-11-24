@@ -5,7 +5,7 @@
             app
             class="yellow darken-1"
     >
-        <v-list class="pa-0">
+        <v-list class="pa-0 logo">
             <v-list-tile avatar>
                 <v-list-tile-avatar>
                     <img src="./../images/twink_logo.png" />
@@ -15,32 +15,27 @@
                 </v-list-tile-content>
             </v-list-tile>
         </v-list>
-        <v-list dense>
+        <v-list two-line class="side-menu-list">
             <v-list-tile @click="">
                 <v-list-tile-action>
-                    <v-icon>home</v-icon>
+                    <v-icon large>home</v-icon>
                 </v-list-tile-action>
                 <v-list-tile-content>
-                    <v-list-tile-title>Home</v-list-tile-title>
+                    <v-list-tile-title class="title">ホーム</v-list-tile-title>
                 </v-list-tile-content>
+                <div class="moving-arrow" style="transform: translate3d(0px, 0px, 0px);"></div>
             </v-list-tile>
             <v-list-tile @click="">
                 <v-list-tile-action>
-                    <v-icon>contact_mail</v-icon>
+                    <v-icon large>contact_mail</v-icon>
                 </v-list-tile-action>
                 <v-list-tile-content>
-                    <v-list-tile-title>Contact</v-list-tile-title>
+                    <v-list-tile-title class="title">Contact</v-list-tile-title>
                 </v-list-tile-content>
             </v-list-tile>
         </v-list>
     </v-navigation-drawer>
 </template>
-
-<style>
-    .side-menu {
-        background-color: #B00100;
-    }
-</style>
 
 <script>
     export default {

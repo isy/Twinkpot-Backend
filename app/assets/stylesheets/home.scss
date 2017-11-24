@@ -1,3 +1,17 @@
 // Place all the styles related to the home controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+.side-menu-list {
+  color: #fff;
+}
+
+.moving-arrow {
+  border-right: 17px solid #f4f3ef;
+  border-top: 17px solid transparent;
+  border-bottom: 17px solid transparent;
+  display: inline-block;
+  position: absolute;
+  right: 0;
+  transition: all 0.5s cubic-bezier(0.29, 1.42, 0.79, 1);
+}

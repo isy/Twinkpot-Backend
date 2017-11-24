@@ -19,6 +19,15 @@
     src: font-url('Pacifico-Regular.ttf');
 }
 
+body {
+  font-family: Lato, "ヒラギノ角ゴシック Pro", "Hiragino Kaku Gothic Pro", メイリオ, Meiryo, Osaka, "ＭＳ Ｐゴシック", "MS PGothic", sans-serif;
+}
+
+.logo {
+  border-bottom: 1px solid rgba(255, 249, 241, 0.3);
+  margin: 0 20px;
+}
+
 .logo-face {
   font-family: Pacifico;
   font-size: 26px;
