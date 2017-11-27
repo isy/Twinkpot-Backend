@@ -1,3 +1,31 @@
 // Place all the styles related to the top controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+.header-contents {
+  background: image_url("paint.png");
+  background-size: cover;
+  width: 100%;
+  height: 75vh;
+  color: #fff;
+  .header-contents-center {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+    .hash {
+      font-size: 46px;
+      font-weight: bold;
+    }
+  }
+}
+
+.about-contents {
+  padding: 30px 0 0 0;
+  background-color: #fff9f1;
+  .card-contents {
+    width: 80%;
+    height: 200px;
+    margin: 0 auto;
+  }
+}

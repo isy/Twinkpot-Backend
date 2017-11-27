@@ -1,0 +1,42 @@
+#nav {
+  background-color: #fff;
+  border: none;
+  margin: 5px 0 5px 0;
+  li {
+    a:before {
+      content: '';
+      width: 0;
+      left: 50%;
+      bottom: -5px;
+      transition: all 0.3s ease;
+      border-bottom: 3px solid #f59088;
+      position: absolute;
+      display: block;
+    }
+    a:hover:before {
+      width: 50%;
+      border-bottom: 3px solid #f59088;
+    }
+    a:after {
+      content: '';
+      width: 0;
+      right: 50%;
+      bottom: -5px;
+      transition: all 0.3s ease;
+      border-bottom: 3px solid #f59088;
+      position: absolute;
+      display: block;
+    }
+    a:hover:after {
+      width: 50%;
+      border-bottom: 3px solid #f59088;
+    }
+  }
+}
+
+.header-logo {
+  font-family: Pacifico;
+  color: #fdd835;
+  font-size: 32px;
+  margin-left: 30px;
+}

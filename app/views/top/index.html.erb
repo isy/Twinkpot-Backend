@@ -1,35 +1,28 @@
-<div id="app">
-  <v-navigation-drawer
-  fixed
-  v-model="drawer"
-  app
-  >
-    <v-list dense>
-      <v-list-tile @click="">
-        <v-list-tile-action>
-          <v-icon>home</v-icon>
-        </v-list-tile-action>
-        <v-list-tile-content>
-          <v-list-tile-title>Home</v-list-tile-title>
-        </v-list-tile-content>
-      </v-list-tile>
-      <v-list-tile @click="">
-        <v-list-tile-action>
-          <v-icon>contact_mail</v-icon>
-        </v-list-tile-action>
-        <v-list-tile-content>
-          <v-list-tile-title>Contact</v-list-tile-title>
-        </v-list-tile-content>
-      </v-list-tile>
-    </v-list>
-  </v-navigation-drawer>
-
+<%= render partial: "common/header" %>
+<div class="header-contents">
+  <div class="header-contents-center">
+    <p class="hash">#twink<del>le</del>pot</p>
+    <div class="header-contents-description">フォトジェニックな場所を共有/見つけよう</div>
+  </div>
 </div>
-<%= javascript_pack_tag 'top' %>
+<section class="about-contents">
+  <div class="card-contents">
+    <div class="panel panel-default">
+      <div class="panel-body">
+        いい感じにカードレイアウトするよ
+      </div>
+    </div>
+
+  </div>
+</section>
+
 <script>
-    export default {
-        data: () => ({
-            drawer: true
-        }),
-    }
+    $('.hash').t({
+        speed:150,          // タイピングスピード
+        speed_vary:false,  // 「true」にすると人間が入力しているかのように文字ごとのスピードが変わります。
+        delay:1.0,
+        blink:true,       // 「true」にするとカーソルを点滅させる事ができます。
+        tag:'span',  // テキストを囲むタグを指定します。
+        repeat:true
+    });
 </script>
