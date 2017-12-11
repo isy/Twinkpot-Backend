@@ -15,7 +15,7 @@
                 </v-list-tile-content>
             </v-list-tile>
         </v-list>
-        <v-list two-line class="side-menu-list">
+        <v-list one-line class="side-menu-list">
             <v-list-tile @click="">
                 <v-list-tile-action>
                     <v-icon large>home</v-icon>
@@ -40,7 +40,7 @@
 <script>
     export default {
         data: () => ({
-            drawer: true
+            drawer: null
         }),
     }
 </script>
