@@ -15,3 +15,12 @@
   right: 0;
   transition: all 0.5s cubic-bezier(0.29, 1.42, 0.79, 1);
 }
+
+.contents {
+  margin: 0 0 0 300px;
+  background-color: #f4f3ef;
+  .contents-header {
+    height: 57px;
+    border-bottom: 1px solid #DDD;
+  }
+}
