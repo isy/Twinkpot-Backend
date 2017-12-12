@@ -8,6 +8,7 @@ Rails.application.routes.draw do
   namespace :api, format: 'json' do
     resources :login, only: %i(create), controller: :sessions
     resources :users, only: %i(create)
+    resources :photographs, only: %i()
   end
   resources :home, only: %i(index new) do
     get 'photo_new', :on => :collection
