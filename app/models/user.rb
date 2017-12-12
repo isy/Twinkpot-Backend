@@ -6,6 +6,8 @@ class User < ApplicationRecord
 
   after_create :update_access_token!
 
+  has_many :posts
+
   validates :email, presence: true
 
   def update_access_token!
