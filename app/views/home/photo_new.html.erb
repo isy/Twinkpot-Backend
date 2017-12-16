@@ -1,4 +1,75 @@
-
+<div id="app">
+  <side-menu></side-menu>
+  <div class="contents">
+    <%= form_for(@post, :url => photo_create_home_index_path) do |f| %>
+      <div id="canvas">
+        <img v-show="uploadedImage" :src="uploadedImage" id="image" />
+      </div>
+      <%= f.file_field :post_image, id: "selfile", class: "form-control", placeholder: "画像アップロード", 'v-on:change': "onFileChange" %>
+      <vue-google-autocomplete
+        id="map"
+        types="establishment"
+        classname="form-control"
+        placeholder="場所を共有しよう"
+        v-on:placechanged="getAddressData"
+        country="jp"
+        name=""
+      >
+      </vue-google-autocomplete>
+      <%= f.hidden_field :place_id, ':value': 'address.place_id' %>
+      <%= f.hidden_field :place_name, ':value': 'address.name' %>
+      <%= f.hidden_field :remote_post_image_url, id:'image_src', value: '' %>
+      <%= f.collection_select :category_id, @categories, :id, :name %>
+      <%= f.submit '投稿', class: '' %>
+    <% end %>
+    <div class="message is-success" v-show="address">
+      <div class="message-body">{{ address }}</div>
+    </div>
+  </div>
+</div>
 
 
 <%= javascript_pack_tag 'post' %>
+
+<script type="text/javascript">
+    //Adobeエディターのセットアップ関数
+    function set_adbe_image(){
+        //<body>内の画像要素を取得
+        var image = document.getElementById('image');
+        //画像編集エディタを利用するための準備
+        var Editor = new Aviary.Feather({
+            apiKey: '8c2b5b3559be493786442e92aba0f0d0',
+            language: 'ja',
+            onSave: function(imageID, newURL) {
+                document.getElementById("image").src = newURL;
+                document.getElementById("image_src").value = newURL;
+                Editor.close();
+            }
+        });
+        //画像要素をクリックしたら、「編集エディタ」を表示
+        image.addEventListener('click', function () {
+            Editor.launch({
+                //<img>内のidとsrcを取得
+                image: image.id,
+                url: image.src
+            });
+        });
+    }
+    //エディター動作割り当てる
+    set_adbe_image();
+    //ファイル選択ボックスの処理
+    var obj1 = document.getElementById("selfile");
+    obj1.addEventListener("change", function(evt){
+        var file = evt.target.files;
+        var reader = new FileReader();
+        //dataURL形式でファイルを読み込む
+        reader.readAsDataURL(file[0]);
+        //ファイルの読込が終了した時の処理
+        reader.onload = function(){
+            var dataUrl = reader.result;
+            //読み込んだ画像とdataURLを書き出す
+//            document.getElementById("canvas").innerHTML = "<img id='image' class='oppai' src='" + dataUrl + "'>";
+//            set_adbe_image();
+        }
+    },false);
+</script>

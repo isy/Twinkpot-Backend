@@ -4,6 +4,11 @@
     <div class="contents-header">
 
     </div>
+    <% if flash[:notice] %>
+        <div class="flash">
+          <%= flash[:notice] %>
+        </div>
+    <% end %>
     aaaaa
   </div>
 </div>

@@ -12,6 +12,7 @@ Rails.application.routes.draw do
   end
   resources :home, only: %i(index new) do
     get 'photo_new', :on => :collection
+    post 'photo_create', :on => :collection
     # get 'photo_new', :on => :member
   end
 

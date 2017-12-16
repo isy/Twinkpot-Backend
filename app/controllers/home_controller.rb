@@ -5,6 +5,23 @@ class HomeController < ApplicationController
   end
 
   def photo_new
+    @categories = Category.all
     @post = Post.new
+  end
+
+  def photo_create
+    if Post.create(photo_create_params)
+      flash[:notice] = "投稿しました😍"
+      redirect_to home_index_path
+    else
+      flash.now[:error] = "投稿に失敗しました😢"
+      render('posts/photo_new')
+    end
+  end
+
+  private
+  def photo_create_params
+    return params.require(:post).permit(:category_id, :place_id, :place_name, :remote_post_image_url).merge(user_id: current_user.id) unless params['post']['remote_post_image_url'].blank?
+    params.require(:post).permit(:category_id, :place_id, :place_name, :post_image).merge(user_id: current_user.id)
   end
 end

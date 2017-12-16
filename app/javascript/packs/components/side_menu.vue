@@ -33,14 +33,14 @@
                     <v-list-tile-title class="title">Contact</v-list-tile-title>
                 </v-list-tile-content>
             </v-list-tile>
-            <v-list-tile @click="">
+            <a href="/home/photo_new"><v-list-tile @click="">
                 <v-list-tile-action>
                     <v-icon>fa-camera-retro</v-icon>
                 </v-list-tile-action>
                 <v-list-tile-content>
                     <v-list-tile-title class="title">投稿</v-list-tile-title>
                 </v-list-tile-content>
-            </v-list-tile>
+            </v-list-tile></a>
         </v-list>
     </v-navigation-drawer>
 </template>
