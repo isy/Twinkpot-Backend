@@ -1,26 +1,30 @@
-<h2>Log in</h2>
+<main class="session-main">
+  <div class="session-contents">
+    <%= link_to root_path do %><h2 class="logo-face">Twinkpot</h2><% end %>
+    <div class="form-erea">
+      <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
+          <div class="email-field">
+            <%= f.email_field :email, autofocus: true, placeholder: 'メールアドレス', 'v-model': 'user.test' %>
+          </div>
 
-<%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
-  <div class="field">
-    <%= f.label :email %><br />
-    <%= f.email_field :email, autofocus: true %>
-  </div>
+          <div class="field">
+            <%= f.password_field :password, placeholder: 'パスワード', autocomplete: "off" %>
+          </div>
 
-  <div class="field">
-    <%= f.label :password %><br />
-    <%= f.password_field :password, autocomplete: "off" %>
-  </div>
+          <% if devise_mapping.rememberable? -%>
+            <div class="check-field">
+              <%= f.check_box :remember_me %>
+              <%= f.label '次回から自動的にログイン' %>
+            </div>
+          <% end %>
 
-  <% if devise_mapping.rememberable? -%>
-    <div class="field">
-      <%= f.check_box :remember_me %>
-      <%= f.label :remember_me %>
+          <div class="button-actions">
+            <%= f.submit "ログイン" %>
+          </div>
+      <% end %>
+      <%= render "users/shared/links" %>
     </div>
-  <% end -%>
-
-  <div class="actions">
-    <%= f.submit "Log in" %>
   </div>
-<% end %>
+</main>
+<%= javascript_pack_tag 'forms/new_session' %>
 
-<%= render "users/shared/links" %>

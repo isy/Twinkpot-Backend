@@ -10,6 +10,7 @@
  * files in this directory. Styles in this file should be added after the last require_* statement.
  * It is generally better to create a new file per style scope.
  *
+ *= require font-awesome
  *= require_tree .
  *= require_self
  */
@@ -43,4 +44,13 @@ a {
   font-family: Pacifico;
   font-size: 26px;
   color: #fff;
+}
+
+.flash{
+  width: 100%;
+  background-color: #f59088;
+  color: #fff;
+  font-size: 18px;
+  font-weight: bold;
+  padding: 5px;
 }

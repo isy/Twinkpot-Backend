@@ -15,3 +15,11 @@
 //= require jquery
 //= require bootstrap-sprockets
 //= require_tree .
+
+
+$(function() {
+    // flash一定時間でフェード
+    setTimeout(function() {
+        $('.flash').fadeOut("slow");
+    }, 1200);
+});

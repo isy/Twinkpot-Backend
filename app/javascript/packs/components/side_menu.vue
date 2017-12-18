@@ -11,14 +11,14 @@
                     <img src="./../images/twink_logo.png" />
                 </v-list-tile-avatar>
                 <v-list-tile-content>
-                    <v-list-tile-title class="logo-face">Twinkpot</v-list-tile-title>
+                    <a href="/"><v-list-tile-title class="logo-face">Twinkpot</v-list-tile-title></a>
                 </v-list-tile-content>
             </v-list-tile>
         </v-list>
         <v-list one-line class="side-menu-list">
             <v-list-tile @click="">
                 <v-list-tile-action>
-                    <v-icon large>home</v-icon>
+                    <v-icon>home</v-icon>
                 </v-list-tile-action>
                 <v-list-tile-content>
                     <v-list-tile-title class="title">ホーム</v-list-tile-title>
@@ -27,12 +27,20 @@
             </v-list-tile>
             <v-list-tile @click="">
                 <v-list-tile-action>
-                    <v-icon large>contact_mail</v-icon>
+                    <v-icon>contact_mail</v-icon>
                 </v-list-tile-action>
                 <v-list-tile-content>
                     <v-list-tile-title class="title">Contact</v-list-tile-title>
                 </v-list-tile-content>
             </v-list-tile>
+            <a href="/home/photo_new"><v-list-tile @click="">
+                <v-list-tile-action>
+                    <v-icon>fa-camera-retro</v-icon>
+                </v-list-tile-action>
+                <v-list-tile-content>
+                    <v-list-tile-title class="title">投稿</v-list-tile-title>
+                </v-list-tile-content>
+            </v-list-tile></a>
         </v-list>
     </v-navigation-drawer>
 </template>

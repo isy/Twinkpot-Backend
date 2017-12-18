@@ -1,0 +1,61 @@
+@import "./mixin/mixin";
+
+// ログイン画面
+.session-main {
+  width: 100%;
+  height: 100vh;
+  background-color: #fdd835;
+  .session-contents {
+    width: 30%;
+    padding: 100px 0 0 0;
+    margin: 0 auto;
+    text-align: center;
+    @include mq(md) {
+      width: 50%;
+    }
+    .logo-face {
+      font-size: 48px;
+      &:hover {
+        opacity: 0.8;
+      }
+      @include mq(sm) {
+        font-size: 36px;
+      }
+    }
+    .form-erea {
+      margin: 60px 0;
+      .email-field {
+        margin-bottom: 20px;
+      }
+      .check-field {
+        margin: 10px 0;
+      }
+      input[type="email"], input[type="password"] {
+        background: transparent;
+        outline: none;
+        border: none;
+        border-bottom: 2px solid #9baec8;
+        width: 100%;
+        font-size: 20px;
+        &:focus {
+          border-bottom: 3px solid #f59088;
+        }
+        @include mq(md) {
+          font-size: 16px;
+        }
+      }
+      .button-actions {
+        margin-bottom: 10px;
+      }
+      input[type="submit"] {
+        background: #fb6357;
+        width: 100%;
+        color: #fff;
+        font-size: 18px;
+        padding: 5px;
+        outline: none;
+        border: none;
+      }
+    }
+  }
+}
