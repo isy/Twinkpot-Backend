@@ -23,4 +23,12 @@
     height: 57px;
     border-bottom: 1px solid #DDD;
   }
+  .contents-footer {
+    height: 57px;
+    border-top: 1px solid #DDD;
+    .heart {
+      padding: 0 5px;
+      color: #EB5E28;
+    }
+  }
 }

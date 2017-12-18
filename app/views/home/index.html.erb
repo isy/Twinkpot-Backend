@@ -1,9 +1,12 @@
 <div id="app">
   <side-menu></side-menu>
   <div class="contents">
-    <div class="contents-header">
-
-    </div>
+    <%= render 'content_header' %>
+    <% if flash[:notice] %>
+        <div class="flash">
+          <%= flash[:notice] %>
+        </div>
+    <% end %>
     aaaaa
   </div>
 </div>
