@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20171216010106) do
+ActiveRecord::Schema.define(version: 20171217191219) do
 
   create_table "categories", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4" do |t|
     t.text "name"
@@ -33,6 +33,7 @@ ActiveRecord::Schema.define(version: 20171216010106) do
     t.string "place_id"
     t.string "place_name"
     t.string "post_image"
+    t.text "caption"
   end
 
   create_table "tags", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4" do |t|
