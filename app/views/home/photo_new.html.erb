@@ -32,6 +32,9 @@
         <%= f.hidden_field :place_id, ':value': 'address.place_id' %>
         <%= f.hidden_field :place_name, ':value': 'address.name' %>
         <%= f.hidden_field :remote_post_image_url, id:'image_src', value: '' %>
+        <p class="section-title">タグ<i class="fa fa-tags" aria-hidden="true"></i></p>
+        <!--<ul id="tag-it"></ul>-->
+        <input type="text" id="tag-it">
         <p class="section-title">カテゴリ<i class="fa fa-heart" aria-hidden="true"></i><span class="form-required">必須</span></p>
         <%= f.collection_select :category_id, @categories, :id, :name %>
         <p class="section-title">キャプション<i class="fa fa-comment-o" aria-hidden="true"></i></p>
@@ -91,4 +94,8 @@
 //            set_adbe_image();
         }
     },false);
+
+    $(document).ready(function() {
+        $('#tag-it').tagit({placeholderText:"タグをつけよう😜",fieldName:"tags[]"});
+    });
 </script>

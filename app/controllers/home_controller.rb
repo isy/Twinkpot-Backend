@@ -10,6 +10,7 @@ class HomeController < ApplicationController
   end
 
   def photo_create
+    binding.pry
     if Post.create(photo_create_params)
       flash[:notice] = "投稿しました😍"
       redirect_to home_index_path
