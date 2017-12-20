@@ -49,6 +49,8 @@ gem 'jp_prefecture'
 gem 'font-awesome-rails'
 # 画像アップロード
 gem 'carrierwave'
+# turbolinks対応
+gem 'jquery-turbolinks'
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
