@@ -1,5 +1,5 @@
 <div id="app">
-  <side-menu></side-menu>
+  <%= render 'header' %>
   <div class="contents">
     <%= render 'content_header' %>
     <% if flash[:notice] %>
@@ -7,7 +7,7 @@
           <%= flash[:notice] %>
         </div>
     <% end %>
-    aaaaa
+    <router-view></router-view>
   </div>
 </div>
 <%= javascript_pack_tag 'home' %>

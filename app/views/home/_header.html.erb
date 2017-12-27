@@ -1,4 +1,4 @@
-<nav id ="nav" class="navbar navbar-default">
+<nav id ="home-nav" class="navbar navbar-default">
   <div class="container-fluid">
     <!-- Brand and toggle get grouped for better mobile display -->
     <div class="navbar-header">
@@ -8,7 +8,10 @@
         <span class="icon-bar"></span>
         <span class="icon-bar"></span>
       </button>
-      <%= link_to 'Twinkpot', root_path, class: 'header-logo' %>
+      <div class="logo-erea">
+        <%= image_tag 'twink_logo.png', class: 'logo-icon' %>
+        <%= link_to 'Twinkpot', root_path, class: 'header-logo' %>
+      </div>
     </div>
 
     <!-- Collect the nav links, forms, and other content for toggling -->
