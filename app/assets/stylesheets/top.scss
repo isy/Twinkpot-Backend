@@ -23,6 +23,55 @@
 .about-contents {
   padding: 30px 0 0 0;
   background-color: #fff9f1;
+  .gallery {
+    width: 80%;
+    margin: 0 auto;
+    height: 700px;
+    position: relative;
+    img {
+      padding: 10px;
+      background: #fff;
+      max-width: 35%;
+      -moz-box-shadow: 0px 3px 3px rgba(0, 0, 0, .4);
+      -webkit-box-shadow: 0px 3px 3px rgba(0, 0, 0, .4);
+      box-shadow: 0px 3px 3px rgba(0, 0, 0, .4);
+    }
+    .pic-1 {
+      left: 5%;
+      z-index: 1;
+      -moz-transform: rotate(-10deg);
+      -webkit-transform: rotate(-10deg);
+      -o-transform: rotate(-10deg);
+      transform: rotate(-10deg);
+      position: absolute;
+    }
+    .pic-2 {
+      right: 5%;
+      -moz-transform: rotate(-3deg);
+      -webkit-transform: rotate(-3deg);
+      -o-transform: rotate(-3deg);
+      transform: rotate(-3deg);
+      position: absolute;
+    }
+    .pic-3 {
+      left: 5%;
+      bottom: 0;
+      -moz-transform: rotate(-1deg);
+      -webkit-transform: rotate(-1deg);
+      -o-transform: rotate(-1deg);
+      transform: rotate(-1deg);
+      position: absolute;
+    }
+    .pic-4 {
+      right: 5%;
+      bottom: 0;
+      -moz-transform: rotate(8deg);
+      -webkit-transform: rotate(8deg);
+      -o-transform: rotate(8deg);
+      transform: rotate(8deg);
+      position: absolute;
+    }
+  }
   .card-contents {
     width: 80%;
     height: 200px;
