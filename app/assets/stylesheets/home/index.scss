@@ -1,0 +1,34 @@
+.post-contents {
+  width: 1200px;
+  margin: 0 auto;
+  padding: 10px 0;
+  .item {
+    width: 220px;
+    margin: 10px 10px;
+    background-color: #fff;
+    border-radius: 3px;
+    &:hover {
+      cursor: zoom-in;
+    }
+    img {
+      width: 220px;
+      border-radius: 2px;
+    }
+    .item-description {
+      padding: 3px 5px 5px;
+      color: #737272;
+      .place-name {
+        font-size: 14px;
+      }
+      i {
+        font-weight: bold;
+        font-size: 15px;
+        color: #fdd835;
+        padding-right: 5px;
+      }
+      .item-caption {
+        font-weight: bold;
+      }
+    }
+  }
+}

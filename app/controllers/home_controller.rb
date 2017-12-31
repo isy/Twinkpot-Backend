@@ -11,7 +11,7 @@ class HomeController < ApplicationController
 
   def photo_create
     if post = Post.create(photo_create_params)
-      tag_first_or_create(post, tag_params)
+      tag_first_or_create(post, tag_params) if params[:tags]
       flash[:notice] = "投稿しました😍"
       redirect_to home_index_path
     else
