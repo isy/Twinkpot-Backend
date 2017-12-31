@@ -1,4 +1,4 @@
-<div id="app">
+<div id="app" class="app-contents">
   <%= render 'header' %>
   <div class="contents">
     <%= render 'content_header' %>
@@ -7,7 +7,39 @@
           <%= flash[:notice] %>
         </div>
     <% end %>
-    <router-view></router-view>
+    <transition>
+      <router-view></router-view>
+    </transition>
   </div>
 </div>
 <%= javascript_pack_tag 'home' %>
+
+<style>
+  .v-enter-active,
+  .v-leave-active {
+    /* アニメーションの時間、イージングなどを設定 */
+    transition: opacity 200ms ease-out;
+  }
+
+  /* フェードイン */
+  .v-enter {
+    /* フェードインの初期状態 */
+    opacity: 0;
+  }
+
+  .v-enter-to {
+    /* フェードインの終了状態 */
+    opacity: 1;
+  }
+
+  /* フェードアウト */
+  .v-leave {
+    /* フェードアウトの初期状態 */
+    opacity: 1;
+  }
+
+  .v-leave-to {
+    /* フェードアウトの終了状態 */
+    opacity: 0;
+  }
+</style>

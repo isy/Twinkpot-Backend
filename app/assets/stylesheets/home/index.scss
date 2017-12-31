@@ -7,6 +7,9 @@
     margin: 10px 10px;
     background-color: #fff;
     border-radius: 3px;
+    &:hover {
+      cursor: zoom-in;
+    }
     img {
       width: 220px;
       border-radius: 2px;

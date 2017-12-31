@@ -10,14 +10,17 @@ Rails.application.routes.draw do
     resources :users, only: %i(create)
     resources :photographs, only: %i() do
       get 'fetch_tags', :on => :collection
+      get 'fetch_autocomplete_tags', :on => :collection
       get 'fetch_posts', :on => :collection
+      get 'fetch_show_post', :on => :collection
       get 'fetch_tag_search', :on => :collection
     end
   end
   resources :home, only: %i(index new) do
-    get 'tag', to: 'home#index' , :on => :collection
+    get 'tag', to: 'home#index', :on => :collection
     get 'photo_new', :on => :collection
     post 'photo_create', :on => :collection
+    get 'post/:id', to: 'home#index', :on => :collection
     # get 'photo_new', :on => :member
   end
 
