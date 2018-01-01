@@ -16,6 +16,8 @@ Rails.application.routes.draw do
       get 'fetch_tag_search', :on => :collection
     end
   end
+
+  resources :users, only: %i(show)
   resources :home, only: %i(index new) do
     get 'tag', to: 'home#index', :on => :collection
     get 'photo_new', :on => :collection

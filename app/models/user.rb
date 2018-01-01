@@ -5,6 +5,7 @@ class User < ApplicationRecord
          :recoverable, :rememberable, :trackable, :validatable
 
   after_create :update_access_token!
+  mount_uploader :user_image, UserImageUploader
 
   has_many :posts
 
