@@ -1,4 +1,4 @@
-class Api::PhotographsController < ApplicationController
+class Api::PhotographsController < ApiController
   protect_from_forgery with: :null_session
   skip_before_action :authenticate_user_from_token!
 
