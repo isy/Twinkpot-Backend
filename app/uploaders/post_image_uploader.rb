@@ -38,6 +38,10 @@ class PostImageUploader < CarrierWave::Uploader::Base
     process resize_to_fit: [300, nil]
   end
 
+  version :medium_square do
+    process resize_to_fill: [300, 300]
+  end
+
   version :thumb do
     process resize_to_fit: [100, 100]
   end

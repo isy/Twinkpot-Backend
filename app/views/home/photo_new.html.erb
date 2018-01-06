@@ -32,6 +32,12 @@
         </vue-google-autocomplete>
         <%= f.hidden_field :place_id, ':value': 'address.place_id' %>
         <%= f.hidden_field :place_name, ':value': 'address.name' %>
+        <%= f.hidden_field :country, ':value': 'addressData.country' %>
+        <%= f.hidden_field :prefectures, ':value': 'addressData.administrative_area_level_1' %>
+        <%= f.hidden_field :city, ':value': 'addressData.locality' %>
+        <%= f.hidden_field :postal_code, ':value': 'addressData.postal_code' %>
+        <%= f.hidden_field :latitude, ':value': 'addressData.latitude' %>
+        <%= f.hidden_field :longitude, ':value': 'addressData.longitude' %>
         <%= f.hidden_field :remote_post_image_url, id:'image_src', value: '' %>
         <p class="section-title">タグ<i class="fa fa-tags" aria-hidden="true"></i></p>
         <ul id="tag-it"></ul>
@@ -42,6 +48,7 @@
         <%= f.submit '投稿📷', class: 'post-button' %>
       <% end %>
       <div class="message is-success" v-show="address">
+        {{ addressData }}
         <div class="message-body">{{ address }}</div>
       </div>
     </section>

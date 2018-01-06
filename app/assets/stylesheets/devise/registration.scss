@@ -30,10 +30,13 @@
       .password-field {
         margin-bottom: 10px;
       }
+      .text-field {
+        margin: 20px 0;
+      }
       .check-field {
         margin: 10px 0;
       }
-      input[type="email"], input[type="password"] {
+      input[type="email"], input[type="password"], input[type="text"] {
         background: transparent;
         outline: none;
         border: none;

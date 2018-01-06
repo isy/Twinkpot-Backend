@@ -17,11 +17,13 @@ new Vue({
     },
     data: {
         address: '',
+        addressData: '',
         uploadedImage: '',
         tagInput: '',
     },
     methods: {
         getAddressData: function (addressData, placeResultData, id) {
+            this.addressData = addressData;
             this.address = placeResultData;
         },
         onFileChange(e) {

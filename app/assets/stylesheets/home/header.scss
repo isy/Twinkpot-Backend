@@ -21,6 +21,25 @@
       }
     }
   }
+  .dropdown {
+    .dropdown-menu {
+      a {
+        color: #2E2F30;
+      }
+      a:before {
+        border: none;
+      }
+      a:hover:before {
+        border: none;
+      }
+      a:after {
+        border: none;
+      }
+      a:hover:after {
+        border: none;
+      }
+    }
+  }
   li {
     a {
       color: #fff;

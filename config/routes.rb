@@ -17,7 +17,7 @@ Rails.application.routes.draw do
     end
   end
 
-  resources :users, only: %i(show)
+  resources :users, param: :user_name, only: %i(show edit update)
   resources :home, only: %i(index new) do
     get 'tag', to: 'home#index', :on => :collection
     get 'photo_new', :on => :collection

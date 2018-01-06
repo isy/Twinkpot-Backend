@@ -21,8 +21,8 @@ class HomeController < ApplicationController
 
   private
   def photo_create_params
-    return params.require(:post).permit(:category_id, :place_id, :place_name, :remote_post_image_url, :caption).merge(user_id: current_user.id) unless params['post']['remote_post_image_url'].blank?
-    params.require(:post).permit(:category_id, :place_id, :place_name, :post_image, :caption).merge(user_id: current_user.id)
+    return params.require(:post).permit(:category_id, :place_id, :place_name, :country, :prefectures, :city, :postal_code, :latitude, :longitude, :remote_post_image_url, :caption).merge(user_id: current_user.id) unless params['post']['remote_post_image_url'].blank?
+    params.require(:post).permit(:category_id, :place_id, :place_name, :country, :prefectures, :city, :postal_code, :latitude, :longitude, :post_image, :caption).merge(user_id: current_user.id)
   end
 
   def tag_params

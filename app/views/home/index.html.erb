@@ -2,15 +2,11 @@
   <%= render 'header' %>
   <div class="contents">
     <%= render 'content_header' %>
-    <% if flash[:notice] %>
-        <div class="flash">
-          <%= flash[:notice] %>
-        </div>
-    <% end %>
     <transition>
       <router-view></router-view>
     </transition>
   </div>
+  <%= render 'footer' %>
 </div>
 <%= javascript_pack_tag 'home' %>
 

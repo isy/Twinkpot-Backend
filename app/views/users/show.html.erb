@@ -1,0 +1,39 @@
+<%= render 'home/header' %>
+<main class="main-contents">
+  <div class="user-contents">
+    <div class="user-profile">
+      <div class="user-profile-image">
+        <% if @user.user_image.blank? %>
+            <%= image_tag('user/no_image_profile.jpeg', class: 'user-image') %>
+        <% else %>
+            <%= image_tag(current_user.user_image.user_profile.url, class: 'user-image') %>
+        <% end %>
+      </div>
+      <div class="user-profile-detail">
+        <p class="user_name"><%= @user.user_name %></p>
+        <ul class="user-activity">
+          <li><strong><%= @posts.count %></strong>投稿</li>
+          <li><strong>155</strong>フォロワー</li>
+          <li><strong>12</strong>フォロー</li>
+          <li><strong>42002</strong>いいね</li>
+        </ul>
+        <div></div>
+        <div class="user-bio">
+          <%= simple_format(text_url_to_link(h(@user.profile)), {}, sanitize: false) %>
+        </div>
+
+      </div>
+    </div>
+    <div class="user-posts clearfix">
+      <% @posts.each do |post| %>
+          <a href="/home/post/<%= post.id %>">
+          <div class="post-card">
+            <%= image_tag(post.post_image.medium_square.url, class: '') %>
+          </div>
+          </a>
+      <% end %>
+    </div>
+
+  </div>
+</main>
+<%= render 'home/footer' %>

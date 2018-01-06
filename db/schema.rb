@@ -32,6 +32,12 @@ ActiveRecord::Schema.define(version: 20171231152804) do
     t.datetime "updated_at", null: false
     t.string "place_id"
     t.string "place_name"
+    t.string "country"
+    t.string "prefectures"
+    t.string "city"
+    t.string "postal_code"
+    t.string "latitude"
+    t.string "longitude"
     t.string "post_image"
     t.text "caption"
   end

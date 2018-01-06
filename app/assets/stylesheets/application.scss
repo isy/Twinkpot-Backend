@@ -23,6 +23,7 @@
 
 body {
   font-family: "ヒラギノ角ゴシック Pro", "Hiragino Kaku Gothic Pro", メイリオ, Meiryo, Osaka, "ＭＳ Ｐゴシック", "MS PGothic", sans-serif;
+  background-color: #f4f3ef;
 }
 
 a {
@@ -53,7 +54,19 @@ li {
   width: 100%;
   background-color: #f59088;
   color: #fff;
-  font-size: 18px;
-  font-weight: bold;
-  padding: 5px;
+  font-size: 24px;
+  text-align: center;
+  padding: 10px;
+  position: absolute;
+  z-index: 999;
+}
+
+.error {
+  background-color: #ff3535;
+}
+
+.clearfix:after{
+  content: "";
+  display: block;
+  clear: both;
 }

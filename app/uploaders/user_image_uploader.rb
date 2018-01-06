@@ -1,7 +1,7 @@
 class UserImageUploader < CarrierWave::Uploader::Base
 
   # Include RMagick or MiniMagick support:
-  # include CarrierWave::RMagick
+  include CarrierWave::RMagick
   # include CarrierWave::MiniMagick
 
   # Choose what kind of storage to use for this uploader:
@@ -34,6 +34,10 @@ class UserImageUploader < CarrierWave::Uploader::Base
     process resize_to_fill: [300, 300]
   end
 
+  version :user_profile do
+    process resize_to_fill: [150, 150]
+  end
+
   version :thumb do
     process resize_to_fit: [50, 50]
   end
@@ -50,10 +54,10 @@ class UserImageUploader < CarrierWave::Uploader::Base
 
   # Override the filename of the uploaded files:
   # Avoid using model.id or version_name here, see uploader/store.rb for details.
-  def filename
-    time = Time.now
-    name = time.strftime('%Y%m%d%H%M%S') + '.jpg'
-    name.downcase
-  end
+  # def filename
+  #   time = Time.now
+  #   name = time.strftime('%Y%m%d%H%M%S') + '.jpg'
+  #   name.downcase
+  # end
 
 end

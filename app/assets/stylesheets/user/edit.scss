@@ -1,0 +1,52 @@
+.user_edit-contents {
+  width: 100%;
+  margin: 60px 0 0 0;
+  padding: 80px;
+  .edit_profile {
+    width: 80%;
+    margin: 0 auto;
+    border: 1px solid #dbdbdb;
+    background: #fff;
+    display: flex;
+    .edit_profile-menu {
+      width: 20%;
+      border-right: 1px solid #dbdbdb;
+      ul {
+        padding: 0;
+        li {
+          .active {
+            border-left-color: #262626;
+            font-weight: bold;
+          }
+          a {
+            border-left: 2px solid transparent;
+            display: block;
+            font-size: 16px;
+            height: 100%;
+            line-height: 20px;
+            padding: 16px 16px 16px 30px;
+          }
+        }
+      }
+    }
+    .edit_profile-main {
+      width: 80%;
+      max-height: 70vh;
+      overflow: scroll;
+      .edit_profile-main-row {
+        display: flex;
+        margin: 20px 0;
+        .edit_profile-form_name {
+          flex: 0 0 180px;
+          text-align: right;
+          padding-right: 30px;
+        }
+        .edit_profile-form_input {
+        }
+        .submit {
+          margin: 0 auto;
+        }
+      }
+    }
+  }
+}
