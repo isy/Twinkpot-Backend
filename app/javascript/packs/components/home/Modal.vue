@@ -18,7 +18,9 @@
                         </a>
                     </div>
                     <div class="post-place">
-                        <i class="fa fa-map-marker" aria-hidden="true"></i><span class="place_name">{{ postData.place_name }}</span>
+                        <router-link :to="{ name: 'place', params: { name: postData.place_name }}">
+                            <i class="fa fa-map-marker" aria-hidden="true"></i><span class="place_name">{{ postData.place_name }}</span>
+                        </router-link>
                     </div>
                     <div class="tag-row">
                         <i class="fa fa-tags" aria-hidden="true"></i>
@@ -78,7 +80,8 @@
                 const position = new google.maps.LatLng(Number(this.postData.latitude), Number(this.postData.longitude));
                 const marker = new google.maps.Marker({
                     position,
-                    map
+                    map,
+                    title: this.postData.place_name,
                 });
         },
         },

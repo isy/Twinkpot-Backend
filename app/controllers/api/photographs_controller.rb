@@ -23,6 +23,11 @@ class Api::PhotographsController < ApiController
     @posts = tag.try(:posts)
   end
 
+  def fetch_place_post
+    @place = Post.select(:place_name, :latitude, :longitude).find_by(place_name: place_name_params)
+    @posts = Post.where(place_name: place_name_params)
+  end
+
   private
   def term_params
     params.require(:term)
@@ -34,5 +39,9 @@ class Api::PhotographsController < ApiController
 
   def post_id_params
     params.require(:post_id)
+  end
+
+  def place_name_params
+    params.require(:name)
   end
 end

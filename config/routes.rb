@@ -14,6 +14,7 @@ Rails.application.routes.draw do
       get 'fetch_posts', :on => :collection
       get 'fetch_show_post', :on => :collection
       get 'fetch_tag_search', :on => :collection
+      get 'fetch_place_post', :on => :collection
     end
   end
 
@@ -23,6 +24,7 @@ Rails.application.routes.draw do
     get 'photo_new', :on => :collection
     post 'photo_create', :on => :collection
     get 'post/:id', to: 'home#index', :on => :collection
+    get 'place/:name', to: 'home#index', :on => :collection
     # get 'photo_new', :on => :member
   end
 

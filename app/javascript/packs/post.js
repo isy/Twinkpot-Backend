@@ -1,19 +1,14 @@
 import Vue from 'vue/dist/vue.esm.js'
-import Vuetify from 'vuetify'
-import('../../../node_modules/vuetify/dist/vuetify.min.css')
 import PhotoNew from './components/forms/photo_new.vue'
-import SideMenu from './components/side_menu.vue'
 import VueGoogleAutocomplete from 'vue-google-autocomplete'
 import axios from 'axios'
 
-Vue.use(Vuetify)
 
 new Vue({
     el: "#app",
     components: {
         'photo-new': PhotoNew,
         'vue-google-autocomplete': VueGoogleAutocomplete,
-        'side-menu': SideMenu
     },
     data: {
         address: '',
