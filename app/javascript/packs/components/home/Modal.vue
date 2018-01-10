@@ -31,6 +31,14 @@
                     <div class="caption">
                         <span>{{ postData.caption }}</span>
                     </div>
+                    <div class="panel-content-right-footer">
+                        <div class="like-button">
+                            <i class="fa like-heart" :class='{"fa-heart": isLike, "fa-heart-o": !isLike}' aria-hidden="true" @click="clickLike" title="いいね"></i>いいね
+                        </div>
+                        <div class="like-count">
+                            {{ likeCount }} 人がいいねしています
+                        </div>
+                    </div>
                 </div>
             </div>
             <div class="panel-map" ref="googleMap">
@@ -49,9 +57,12 @@
         data: () => ({
             posts: [],
             postData: '',
+            isLike: false,
+            likeState: true,
+            likeCount: 0
         }),
         mounted: function () {
-            this.fetchShowPost();
+            this.fetchShowPost()
         },
         updated: function () {
             this.maps()
@@ -59,17 +70,37 @@
         methods: {
             fetchShowPost: function() {
                 axios.get('/api/photographs/fetch_show_post', {params: {post_id: this.$route.params.id}}).then((response) => {
-                    this.postData = response.data.post;
+                    this.postData = response.data.post
+                    this.isLike = response.data.post.like
+                    this.likeCount = response.data.post.likeCount
                 }, (error) => {
-                    console.log(error);
+                    console.log(error)
                 });
+            },
+            clickLike: function () {
+                if(this.isLike == false) {
+                    axios.post('/api/photographs/post_like', {like: {post_id: this.$route.params.id}}).then((response) => {
+                        this.isLike = true
+                    }, (error) => {
+                        console.log(error)
+                    })
+                    this.likeCount += 1
+                } else {
+                    axios.delete('/api/photographs/delete_like', {params: {post_id: this.$route.params.id}}).then((response) => {
+                        this.isLike = false
+                        console.log(this.isLike)
+                    }, (error) => {
+                        console.log(error)
+                    })
+                    this.likeCount -= 1
+                }
             },
             pageBack: function () {
                 this.$router.go(-1)
             },
             maps: function() {
-                console.log("map: ", google.maps);
-                console.log(this.$refs.googleMap);
+                console.log("map: ", google.maps)
+                console.log(this.$refs.googleMap)
 //                this.$nextTick(() => { console.log(this.$refs.aaa) })
                 const map = new google.maps.Map(this.$refs.googleMap, {
                     center: {lat: Number(this.postData.latitude), lng: Number(this.postData.longitude)},

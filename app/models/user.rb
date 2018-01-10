@@ -9,6 +9,7 @@ class User < ApplicationRecord
   mount_uploader :user_image, UserImageUploader
 
   has_many :posts
+  has_many :likes, dependent: :destroy
 
   validates :email, presence: true
   validates :user_name, presence: true, length: { maximun: 15, minimum: 3}, format: { with: /\A[a-z0-9]+\z/i}, uniqueness: true

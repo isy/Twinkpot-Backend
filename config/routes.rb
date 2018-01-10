@@ -15,6 +15,8 @@ Rails.application.routes.draw do
       get 'fetch_show_post', :on => :collection
       get 'fetch_tag_search', :on => :collection
       get 'fetch_place_post', :on => :collection
+      post 'post_like', :on => :collection
+      delete 'delete_like', :on => :collection
     end
   end
 
