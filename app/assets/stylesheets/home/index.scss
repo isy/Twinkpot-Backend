@@ -9,7 +9,8 @@
     border-radius: 3px;
     position: relative;
     &:hover {
-      cursor: zoom-in;
+      cursor: pointer;
+      box-shadow: 0px 0px 5px 7px #e2e2e2;
     }
     img {
       width: 220px;

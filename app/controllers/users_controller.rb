@@ -18,6 +18,10 @@ class UsersController < ApplicationController
     end
   end
 
+  def itinerary
+
+  end
+
   private
   def update_params
     params.require(:user).permit(:user_image, :user_name, :prefectures, :profile, :gender, :birthday)

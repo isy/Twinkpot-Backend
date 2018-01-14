@@ -5,6 +5,10 @@
         <div class="panel">
             <div class="panel-header">
                 シェアする
+                <div class="save-button">
+                    <span @click="isShow=!isShow"><i class="fa fa-thumb-tack" aria-hidden="true"></i>
+                        保存</span>
+                </div>
             </div>
             <div class="panel-contents">
                 <div class="panel-content-left">
@@ -45,6 +49,22 @@
 
             </div>
         </div>
+
+            <div class="itinerary-modal" v-bind:class="{show: isShow}">
+                <i class="fa fa-times-circle close-button" aria-hidden="true" @click="isShow=!isShow"></i>
+                <h3>旅程を選択</h3>
+                <ul class="itinerary-list">
+                    <li class="itinerary" v-for="itinerary in itineraries" @click="postItineraryDetails(itinerary.id)">
+                        <span>{{ itinerary.itinerary_name }}</span>
+                    </li>
+                </ul>
+                 <form>
+                     <input v-model="itineraryName" type="text" @submit.prevent="postItinerary">
+                 </form>
+                <button @click="postItinerary">追加</button>
+            </div>
+
+            <div class="itinerary-modal-bg" v-bind:class="{show: isShow}" v-on:click="isShow=!isShow"></div>
         <h3>{{ postData }}</h3>
     </div>
 </template>
@@ -59,10 +79,14 @@
             postData: '',
             isLike: false,
             likeState: true,
-            likeCount: 0
+            likeCount: 0,
+            itineraries: [],
+            itineraryName: '',
+            isShow: false
         }),
         mounted: function () {
             this.fetchShowPost()
+            this.fetchItineraries()
         },
         updated: function () {
             this.maps()
@@ -94,6 +118,33 @@
                     })
                     this.likeCount -= 1
                 }
+            },
+            fetchItineraries: function () {
+                axios.get('/api/itineraries/fetch_itineraries').then((response) => {
+                    for(var i = 0; i < response.data.itineraries.length; i++) {
+                        this.itineraries.push(response.data.itineraries[i]);
+                    }
+                }, (error) => {
+                    console.log(error);
+                });
+            },
+            postItinerary: function () {
+                if(!this.itineraryName) return;
+                axios.post('/api/itineraries/post_itineraries', {itinerary: {itinerary_name: this.itineraryName}}).then((response) => {
+                    console.log(response.data)
+                    this.itineraries.unshift(response.data.itinerary);
+                    this.itineraryName = ''
+                }, (error) => {
+                    console.log(error)
+                })
+            },
+            postItineraryDetails(itinerary_id) {
+                axios.post('/api/itineraries/post_itinerary_details', {itinerary_details: {itinerary_id: itinerary_id, post_data: this.postData}}).then((response) => {
+                    console.log(response.data)
+                    this.isShow = false
+                }, (error) => {
+                    console.log(error)
+                })
             },
             pageBack: function () {
                 this.$router.go(-1)

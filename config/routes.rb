@@ -18,9 +18,16 @@ Rails.application.routes.draw do
       post 'post_like', :on => :collection
       delete 'delete_like', :on => :collection
     end
+    resources :itineraries, only: %i() do
+      get 'fetch_itineraries', :on => :collection
+      post 'post_itineraries', :on => :collection
+      post 'post_itinerary_details', :on => :collection
+    end
   end
 
-  resources :users, param: :user_name, only: %i(show edit update)
+  resources :users, param: :user_name, only: %i(show edit update) do
+    get 'itinerary', :on => :member
+  end
   resources :home, only: %i(index new) do
     get 'tag', to: 'home#index', :on => :collection
     get 'photo_new', :on => :collection
