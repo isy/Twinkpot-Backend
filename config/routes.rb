@@ -22,6 +22,8 @@ Rails.application.routes.draw do
       get 'fetch_itineraries', :on => :collection
       post 'post_itineraries', :on => :collection
       post 'post_itinerary_details', :on => :collection
+      get 'fetch_itinerary_details', :on => :collection
+      get 'fetch_itinerary_places', :on => :collection
     end
   end
 

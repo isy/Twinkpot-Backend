@@ -1,0 +1,82 @@
+.itinerary-map-contents {
+  margin: 60px 0 0 0;
+  display: flex;
+  .itinerary-map {
+    width: 75%;
+    height : -webkit-calc(100vh - 60px) ;
+    height : calc(100vh - 60px) ;
+  }
+  .itinerary-side {
+    width: 25%;
+    height : -webkit-calc(100vh - 60px) ;
+    height : calc(100vh - 60px) ;
+    overflow: scroll;
+    .mode-select {
+      width: 100%;
+      margin: 10px 0 0 0;
+      text-align: center;
+      .transport {
+        font-size: 18px;
+        font-weight: 600;
+      }
+      .mode-list {
+        width: 100%;
+        display: flex;
+        padding: 0;
+        justify-content: center;
+        .mode-button {
+          width: 100px;
+          background: #fff;
+          border: 1px solid #dcdbd8;
+          color: #6f6f6f;
+          padding: 5px;
+          &:hover {
+            cursor: pointer;
+          }
+        }
+        .mode-active {
+          color: #fff;
+          background-color: #0c93d6;
+        }
+      }
+    }
+    .mode-time {
+      width: 100%;
+      text-align: center;
+      display: flex;
+      justify-content: center;
+      .mode-time-title {
+        padding: 5px 20px 5px 20px;
+        font-size: 16px;
+        font-weight: 600;
+        color: #2E2F30;
+        line-height: 30px;
+        span {
+          margin-top: 10px;
+          font-size: 18px;
+          color: #0d92d7;
+        }
+      }
+    }
+    .place_details {
+      width: 100%;
+      .place_detail {
+        img {
+          width: 100%;
+        }
+        &:hover {
+          cursor: pointer;
+          opacity: 0.8;
+        }
+        .place_detail-info {
+          h5 {
+            color: #2E2F30;
+            font-size: 18px;
+            margin-top: 12px;
+            padding: 8px 12px;
+          }
+        }
+      }
+    }
+  }
+}
