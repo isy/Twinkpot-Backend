@@ -22,6 +22,7 @@ Rails.application.routes.draw do
       get 'fetch_itineraries', :on => :collection
       post 'post_itineraries', :on => :collection
       post 'post_itinerary_details', :on => :collection
+      get 'fetch_itinerary_lists', :on => :collection
       get 'fetch_itinerary_details', :on => :collection
       get 'fetch_itinerary_places', :on => :collection
     end
@@ -29,6 +30,7 @@ Rails.application.routes.draw do
 
   resources :users, param: :user_name, only: %i(show edit update) do
     get 'itinerary', :on => :member
+    get 'itinerary/:id', to: 'users#itinerary', :on => :member
   end
   resources :home, only: %i(index new) do
     get 'tag', to: 'home#index', :on => :collection

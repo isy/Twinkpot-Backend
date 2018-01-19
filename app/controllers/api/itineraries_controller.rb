@@ -22,14 +22,14 @@ class Api::ItinerariesController < ApiController
     @itinerary.itinerary_details.create(postdata_params)
   end
 
-  def fetch_itinerary_details
-    @itinerary_details = ItineraryDetail.where(itinerary_id: 12)
+  def fetch_itinerary_lists
+    @itinerary_lists = Itinerary.where(user_id: current_user)
   end
 
-  # def fetch_itinerary_places
-  #   @place = Post.find(Like.includes(:post).where(posts: {place_name: place_name_params}).group(:post_id).order('count(post_id) desc').limit(1).pluck(:post_id))
-  #   @place = Post.find_by(place_name: place_name_params) if @place.empty?
-  # end
+  def fetch_itinerary_details
+    @itinerary_details = ItineraryDetail.where(itinerary_id: itinerary_id_param)
+  end
+
   def fetch_itinerary_places
     @places = []
     place_name_params.each do | place_name |
@@ -48,6 +48,10 @@ class Api::ItinerariesController < ApiController
     params.require(:itinerary).permit(:itinerary_name).merge(user_id: current_user.id)
   end
 
+  def itinerary_id_param
+    params.require(:itinerary_id)
+  end
+
   def itinerary_id_params
     params.require(:itinerary_details).require(:itinerary_id)
   end
@@ -56,9 +60,6 @@ class Api::ItinerariesController < ApiController
     params.require(:itinerary_details).require(:post_data).permit(:place_name, :latitude, :longitude)
   end
 
-  # def place_name_params
-  #   params.require(:place_name)
-  # end
   def place_name_params
     params.require(:itineraries)
   end

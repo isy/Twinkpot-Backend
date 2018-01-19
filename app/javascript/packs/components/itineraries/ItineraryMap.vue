@@ -2,6 +2,19 @@
     <div class="itinerary-map-contents">
         <div class="itinerary-map" ref="googleMap">
         </div>
+        <div class="share_box">
+            <label for="label1"><i class="fa fa-share-alt" aria-hidden="true"></i></label>
+            <input type="checkbox" id="label1"/>
+            <div class="hidden_show">
+                <p>プランをシェアする</p>
+                <div class="share-button">
+                    <a :href="'http://www.facebook.com/sharer.php?u=' + currentUrl" target="_blank" class="btn-fb"><i class="icon-facebook"></i></a>
+                    <a :href="'http://twitter.com/share?url=' + currentUrl + '&text=【Twinkpot】でプランを作りました😜&related=orefolder'" target="_blank" class="btn-tw"><i class="icon-twitter"></i></a>
+                    <a href="http://line.me/R/msg/text/?【Twinkpot】からプランが届きました☺️" target="_blank" class="btn-li"><i class="icon-line"></i></a>
+                </div>
+
+            </div>
+        </div>
         <div class="itinerary-side">
             <div class="mode-select">
                 <p class="transport">交通手段</p>
@@ -16,7 +29,6 @@
 
             </div>
             <div class="place_details">
-                <!--<div class="place_detail" v-for="itineraryPlace in itineraryPlaces">-->
                 <div class="place_detail" v-for="itineraryPlace in itineraryPlaces">
                     <a :href="'/home/place/' + itineraryPlace.place.place_name">
                         <img v-if="itineraryPlace.place.post_image" :src="itineraryPlace.place.post_image.medium.url">
@@ -41,7 +53,8 @@
             itineraryPlaces: [],
             selectedMode: 'DRIVING',
             min: 0,
-            distance: 0
+            distance: 0,
+            currentUrl: location.href
         }),
         mounted: function () {
             this.fetchItinerary()
@@ -52,7 +65,7 @@
                 this.maps()
             },
             fetchItinerary: function() {
-                axios.get('/api/itineraries/fetch_itinerary_details').then((response) => {
+                axios.get('/api/itineraries/fetch_itinerary_details', {params: {itinerary_id: this.$route.params.id}}).then((response) => {
                     this.itineraries = response.data.itineraries
                     this.maps()
                     this.fetchItineraryPlaces()
@@ -97,6 +110,7 @@
                 const map = new google.maps.Map(this.$refs.googleMap, {
                     center: {lat: avgLat, lng: avgLng},
                     scrollwheel: false,
+                    mapTypeControl: false,
                     zoom: 14
                 })
                 const request = {
