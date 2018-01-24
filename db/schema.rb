@@ -19,7 +19,7 @@ ActiveRecord::Schema.define(version: 20180124102500) do
   end
 
   create_table "itineraries", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4" do |t|
-    t.integer "user_id"
+    t.integer "user_id", null: false
     t.text "itinerary_name"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
@@ -27,7 +27,7 @@ ActiveRecord::Schema.define(version: 20180124102500) do
   end
 
   create_table "itinerary_details", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4" do |t|
-    t.integer "itinerary_id"
+    t.integer "itinerary_id", null: false
     t.text "place_name"
     t.string "latitude"
     t.string "longitude"
@@ -37,24 +37,24 @@ ActiveRecord::Schema.define(version: 20180124102500) do
   end
 
   create_table "likes", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4" do |t|
-    t.integer "user_id"
-    t.integer "post_id"
+    t.integer "user_id", null: false
+    t.integer "post_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["user_id", "post_id"], name: "like_idx01"
   end
 
   create_table "post_tags", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4" do |t|
-    t.integer "post_id"
-    t.integer "tag_id"
+    t.integer "post_id", null: false
+    t.integer "tag_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["post_id", "tag_id"], name: "post_tag_idx01"
   end
 
   create_table "posts", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4" do |t|
-    t.integer "user_id"
-    t.integer "category_id"
+    t.integer "user_id", null: false
+    t.integer "category_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.string "place_id"
@@ -72,15 +72,15 @@ ActiveRecord::Schema.define(version: 20180124102500) do
   end
 
   create_table "prefecture_cities", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4" do |t|
-    t.integer "code"
-    t.string "prefecture"
-    t.string "city"
+    t.integer "code", null: false
+    t.string "prefecture", null: false
+    t.string "city", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
 
   create_table "tags", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4" do |t|
-    t.text "name"
+    t.text "name", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["name"], name: "tag_name_idx", length: { name: 50 }
@@ -100,7 +100,7 @@ ActiveRecord::Schema.define(version: 20180124102500) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.string "access_token"
-    t.string "user_name"
+    t.string "user_name", null: false
     t.text "profile"
     t.string "prefectures"
     t.string "user_image"
