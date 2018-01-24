@@ -7,12 +7,56 @@ class Api::PhotographsController < ApiController
     @tags = Tag.where('name LIKE _utf8mb4? COLLATE utf8mb4_unicode_ci', "%#{term_params}%").pluck(:name)
   end
 
+  def fetch_popular_tag
+    @tags = Tag.find(PostTag.group(:tag_id).order('count(tag_id) desc').limit(20).pluck(:tag_id))
+    render :fetch_tags
+  end
+
   def fetch_autocomplete_tags
     @tags = Tag.select_tag_column.with_post_tag.search_like_tag(term_params)
   end
 
+  def fetch_category
+    @categories = Category.all
+  end
+
+  def fetch_city
+    @cities = PrefectureCity.where(prefecture: prefecture_params)
+  end
+
+  def fetch_refine_posts
+    if refine_post_params[:prefecture].empty? && refine_post_params[:category].empty?
+      @posts = Post.all
+    elsif refine_post_params[:prefecture].empty? && refine_post_params[:category].present? && refine_post_params[:city].empty?
+      @posts = Post.where(category_id: refine_post_params[:category]).order('created_at DESC')
+    elsif refine_post_params[:prefecture].present? && refine_post_params[:category].empty? && refine_post_params[:city].empty?
+      @posts = Post.where(prefectures: refine_post_params[:prefecture]).order('created_at DESC')
+    elsif refine_post_params[:prefecture].present? && refine_post_params[:category].present? && refine_post_params[:city].empty?
+      @posts = Post.where(prefectures: refine_post_params[:prefecture]).where(category_id: refine_post_params[:category]).order('created_at DESC')
+    elsif refine_post_params[:city].present? && refine_post_params[:category].empty?
+      @posts = Post.where(prefectures: refine_post_params[:prefecture]).where(city: refine_post_params[:city]).order('created_at DESC')
+    else
+      @posts = Post.where(prefectures: refine_post_params[:prefecture]).where(city: refine_post_params[:city]).where(category_id: refine_post_params[:category]).order('created_at DESC')
+    end
+    render :fetch_posts
+  end
+
   def fetch_posts
     @posts = Post.all.order('created_at DESC')
+  end
+
+  def fetch_limit_posts
+    @posts = Post.all.limit(10).order('created_at DESC')
+    render :fetch_posts
+  end
+
+  def fetch_user_rank
+    @users = User.find(Like.group(:user_id).order('count(user_id) desc').limit(5).pluck(:user_id))
+  end
+
+  def fetch_popular_posts
+    @posts = Post.find(Like.group(:post_id).order('count(post_id) desc').limit(10).pluck(:post_id))
+    render :fetch_posts
   end
 
   def fetch_show_post
@@ -60,6 +104,14 @@ class Api::PhotographsController < ApiController
 
   def tag_params
     params.require(:tag_name)
+  end
+
+  def prefecture_params
+    params.require(:prefecture)
+  end
+
+  def refine_post_params
+    params.permit(:prefecture, :city, :category)
   end
 
   def post_id_params

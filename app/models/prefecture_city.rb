@@ -1,0 +1,2 @@
+class PrefectureCity < ApplicationRecord
+end

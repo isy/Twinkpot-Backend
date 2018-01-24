@@ -11,4 +11,15 @@
       text-align: center;
     }
   }
+  .search-contents {
+    width: 100%;
+    display: flex;
+    .post-contents{
+      .message {
+        margin-top: 50px;
+        font-size: 24px;
+      }
+      width: 80%;
+    }
+  }
 }

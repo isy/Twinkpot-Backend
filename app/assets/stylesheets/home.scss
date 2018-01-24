@@ -16,6 +16,88 @@
   transition: all 0.5s cubic-bezier(0.29, 1.42, 0.79, 1);
 }
 
+.tag-rank {
+  width: 20%;
+  h2 {
+    font-size: 24px;
+    color: #03a9f4;
+    margin-left: 10px;
+    i {
+      margin-right: 10px;
+    }
+  }
+  .tag-lists {
+    .tag {
+      line-height: 40px;
+      font-size: 16px;
+      padding-left: 10px;
+      cursor: pointer;
+      &:hover {
+        background: rgba(245, 56, 126, 0.3);
+        color: #fff;
+      }
+      &:before {
+        content: '#';
+        color: rgba(72, 72, 72, 0.5);
+        margin: 0 10px 0 0;
+      }
+    }
+  }
+
+}
+
+.refine {
+  padding: 20px 0 30px 0;
+  border-bottom: 1px solid #ddd;
+  background-color: #fff;
+  .refine-title {
+    text-align: center;
+    font-size: 24px;
+    font-weight: 600;
+    color: #484b4e;
+    margin-bottom: 30px;
+  }
+  label {
+    line-height: 30px;
+    margin: 0;
+  }
+  .pref-city {
+    display: flex;
+    margin-left: 30px;
+    .pref-select {
+      width: 300px;
+      margin-left: 10px;
+    }
+    .city-select {
+      width: 300px;
+      margin-left: 20px;
+    }
+  }
+  .category {
+    display: flex;
+    margin: 20px 0 0 30px;
+    .category-select {
+      width: 250px;
+      margin-left: 10px;
+    }
+  }
+  .refine-button {
+    background-color: #fb6257;
+    width: 300px;
+    text-align: center;
+    line-height: 30px;
+    cursor: pointer;
+    border-radius: 20px;
+    padding: 5px 10px 5px 10px;
+    margin: 0 auto;
+    font-size: 18px;
+    color: #fff;
+    &:hover {
+      opacity: 0.8;
+    }
+  }
+}
+
 .app-contents{
   background-color: #f4f3ef;
   min-height: 100vh;
@@ -27,6 +109,30 @@
   .contents-header {
     height: 57px;
     border-bottom: 1px solid #DDD;
+    display: flex;
+    align-items: center;
+    .contents-header-list {
+      border-radius: 20px;
+      width: 150px;
+      margin: 10px 5px;
+      padding: 10px 0 10px 0;
+      text-align: center;
+      font-size: 16px;
+      color: #fff;
+      cursor: pointer;
+      &:hover {
+        opacity: 0.8;
+      }
+    }
+    .header-blue {
+      background-color: #0d92d7;
+    }
+    .header-red {
+      background-color: #fb6257;
+    }
+    .header-green {
+      background-color: #50e637;
+    }
   }
   .contents-footer {
     height: 57px;

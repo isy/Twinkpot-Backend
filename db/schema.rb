@@ -10,7 +10,31 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180113061528) do
+ActiveRecord::Schema.define(version: 20180120151338) do
+
+  create_table "ad_address", id: :integer, default: 0, force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
+    t.integer "ken_id"
+    t.integer "city_id"
+    t.integer "town_id"
+    t.string "zip", limit: 8
+    t.boolean "office_flg"
+    t.boolean "delete_flg"
+    t.string "ken_name", limit: 8
+    t.string "ken_furi", limit: 8
+    t.string "city_name", limit: 24
+    t.string "city_furi", limit: 24
+    t.string "town_name", limit: 32
+    t.string "town_furi", limit: 32
+    t.string "town_memo", limit: 16
+    t.string "kyoto_street", limit: 32
+    t.string "block_name", limit: 64
+    t.string "block_furi", limit: 64
+    t.string "memo"
+    t.string "office_name"
+    t.string "office_furi"
+    t.string "office_address"
+    t.integer "new_id"
+  end
 
   create_table "categories", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4" do |t|
     t.text "name"
@@ -63,6 +87,14 @@ ActiveRecord::Schema.define(version: 20180113061528) do
     t.string "longitude"
     t.string "post_image"
     t.text "caption"
+  end
+
+  create_table "prefecture_cities", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4" do |t|
+    t.integer "code"
+    t.string "prefecture"
+    t.string "city"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
   create_table "tags", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4" do |t|
