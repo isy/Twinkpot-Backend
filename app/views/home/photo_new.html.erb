@@ -19,7 +19,7 @@
           <i id="edit-button" class="fa fa-pencil edit-icon" aria-hidden="true"></i>
           <p>※右下のアイコンで画像を編集することができます</p>
         </div>
-        <p class="section-title">位置情報<i class="fa fa-location-arrow" aria-hidden="true"></i></p>
+        <p class="section-title">位置情報<i class="fa fa-location-arrow" aria-hidden="true"></i><span class="form-required">必須</span></p>
         <vue-google-autocomplete
           id="map"
           types="establishment"
@@ -32,10 +32,12 @@
         </vue-google-autocomplete>
         <%= f.hidden_field :place_id, ':value': 'address.place_id' %>
         <%= f.hidden_field :place_name, ':value': 'address.name' %>
+        <%= f.hidden_field :address, ':value': 'address.formatted_address' %>
         <%= f.hidden_field :country, ':value': 'addressData.country' %>
         <%= f.hidden_field :prefectures, ':value': 'addressData.administrative_area_level_1' %>
         <%= f.hidden_field :city, ':value': 'addressData.locality' %>
         <%= f.hidden_field :postal_code, ':value': 'addressData.postal_code' %>
+        <%= f.hidden_field :tel, ':value': 'address.formatted_phone_number' %>
         <%= f.hidden_field :latitude, ':value': 'addressData.latitude' %>
         <%= f.hidden_field :longitude, ':value': 'addressData.longitude' %>
         <%= f.hidden_field :remote_post_image_url, id:'image_src', value: '' %>

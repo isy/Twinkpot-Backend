@@ -50,6 +50,7 @@ gem 'font-awesome-rails'
 # 画像アップロード
 gem 'carrierwave'
 gem 'rmagick'
+gem 'fog'
 # enum
 gem 'enumerize'
 group :development, :test do
