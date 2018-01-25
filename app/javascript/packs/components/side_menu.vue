@@ -16,7 +16,7 @@
             </v-list-tile>
         </v-list>
         <v-list one-line class="side-menu-list">
-            <v-list-tile @click="">
+            <a href="/home"><v-list-tile @click="">
                 <v-list-tile-action>
                     <v-icon>home</v-icon>
                 </v-list-tile-action>
@@ -24,7 +24,7 @@
                     <v-list-tile-title class="title">ホーム</v-list-tile-title>
                 </v-list-tile-content>
                 <div class="moving-arrow" style="transform: translate3d(0px, 0px, 0px);"></div>
-            </v-list-tile>
+            </v-list-tile></a>
             <v-list-tile @click="">
                 <v-list-tile-action>
                     <v-icon>contact_mail</v-icon>

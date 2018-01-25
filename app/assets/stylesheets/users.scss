@@ -1,0 +1,66 @@
+// Place all the styles related to the users controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+
+.main-contents {
+  margin: 60px 0 0 0;
+  width: 100%;
+  .user-contents {
+    width: 80%;
+    padding: 50px 0 0 0;
+    margin: 50px auto 0;
+    .user-profile {
+      width: 80%;
+      margin: 0 auto;
+      padding: 20px 0;
+      display: flex;
+      border-bottom: 1px solid #e4e4e4;
+      .user-profile-image {
+        display: inline-flex;
+        .user-image {
+          width: 150px;
+          height: 150px;
+          border-radius: 50%;
+        }
+      }
+      .user-profile-detail {
+        padding: 10px;
+        .user_name {
+          font-size: 24px;
+          font-weight: bold;
+        }
+        .user-activity {
+          margin: 0;
+          padding: 0;
+          li {
+            padding: 0 10px 0 0;
+            display: inline-block;
+          }
+        }
+        .user-bio {
+          a {
+            color: #31c5b8;
+          }
+        }
+      }
+    }
+    .user-posts {
+      width: 80%;
+      margin: 0 auto;
+      padding: 20px 0 0 0;
+      .post-card {
+        width: 32%;
+        padding: 0.5%;
+        float: left;
+        transition: 0.6s;
+        img {
+          width: 100%;
+        }
+        &:hover {
+          opacity: 0.7;
+          border-radius: 3px;
+        }
+      }
+    }
+  }
+}

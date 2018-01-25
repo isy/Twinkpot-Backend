@@ -4,3 +4,4 @@
 
 $ ->
   $(document).on "keypress", "input:not(.allow_submit)", (event) -> event.which != 13
+

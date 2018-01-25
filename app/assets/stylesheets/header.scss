@@ -3,7 +3,24 @@
 #nav {
   background-color: #fff;
   border: none;
-  margin: 5px 0 5px 0;
+  padding: 5px 0 5px 0;
+  margin: 0;
+  .dropdown {
+    .dropdown-menu {
+      a:before {
+        border: none;
+      }
+      a:hover:before {
+        border: none;
+      }
+      a:after {
+        border: none;
+      }
+      a:hover:after {
+        border: none;
+      }
+    }
+  }
   li {
     a:before {
       content: '';
@@ -44,4 +61,12 @@
   @include mq(md) {
     font-size: 30px;
   }
+}
+
+.user_image-header {
+  width: 30px;
+  height: 30px;
+  margin: -3px 5px 0 0;
+  border-radius: 50%;
+  float: left;
 }

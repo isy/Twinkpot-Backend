@@ -1,0 +1,25 @@
+@import "./mixin/mixin";
+
+.tag_search--contents {
+  .tag_search--input {
+    width: 50%;
+    margin: 0 auto;
+    input {
+      width: 100%;
+      font-size: 20px;
+      font-weight: bold;
+      text-align: center;
+    }
+  }
+  .search-contents {
+    width: 100%;
+    display: flex;
+    .post-contents{
+      .message {
+        margin-top: 50px;
+        font-size: 24px;
+      }
+      width: 80%;
+    }
+  }
+}

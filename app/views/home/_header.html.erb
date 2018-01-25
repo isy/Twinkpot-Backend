@@ -1,0 +1,55 @@
+<nav id ="home-nav" class="navbar navbar-default navbar-fixed-top">
+  <div class="container-fluid">
+    <!-- Brand and toggle get grouped for better mobile display -->
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+        <span class="sr-only"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <div class="logo-erea">
+        <%= image_tag 'twink_logo.png', class: 'logo-icon' %>
+        <%= link_to 'Twinkpot', root_path, class: 'header-logo' %>
+      </div>
+    </div>
+
+    <!-- Collect the nav links, forms, and other content for toggling -->
+    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+      <ul class="nav navbar-nav navbar-right">
+        <li><%= link_to 'ホーム', home_index_path %></li>
+        <li><%= link_to '投稿', photo_new_home_index_path %></li>
+        <li class="dropdown">
+          <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Dropdown <span class="caret"></span></a>
+          <ul class="dropdown-menu">
+            <li><a href="#">Act</a></li>
+            <li><a href="#">Another action</a></li>
+            <li><a href="#">Something else here</a></li>
+            <li role="separator" class="divider"></li>
+            <li><a href="#">Separated link</a></li>
+          </ul>
+        </li>
+        <% if user_signed_in? %>
+            <li class="dropdown">
+              <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
+                <% if current_user.user_image.blank? %>
+                    <%= image_tag('user/no_image.jpeg', class: 'user_image-header') %>
+                <% else %>
+                    <%= image_tag(current_user.user_image.header_icon.url, class: 'user_image-header') %>
+                <% end %>
+                <span class="caret"></span></a>
+              <ul class="dropdown-menu" role="menu">
+                <li><%= link_to 'マイページ', user_path(current_user.user_name) %></li>
+                <li><%= link_to 'マイプラン', itinerary_user_path(current_user.user_name) %></li>
+                <li class="divider"></li>
+                <li><%= link_to '設定', edit_user_path(current_user.user_name) %></li>
+                <li><%= link_to 'ログアウト', destroy_user_session_path, method: :delete %></li>
+              </ul>
+            </li>
+        <% else %>
+            <li><%= link_to '新規登録 / ログイン', new_user_session_path %></li>
+        <% end %>
+      </ul>
+    </div><!-- /.navbar-collapse -->
+  </div><!-- /.container-fluid -->
+</nav>

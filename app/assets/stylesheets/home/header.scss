@@ -1,0 +1,77 @@
+@import "./mixin/mixin";
+
+#home-nav {
+  background-color: #fdd835;
+  border: none;
+  padding: 5px 0 5px 0;
+  margin-bottom: 0;
+  .logo-erea {
+    position: relative;
+    .logo-icon {
+      position: absolute;
+      width: 50px;
+    }
+    .header-logo {
+      font-family: Pacifico;
+      color: #fff;
+      font-size: 32px;
+      margin-left: 50px;
+      @include mq(md) {
+        font-size: 30px;
+      }
+    }
+  }
+  .dropdown {
+    .dropdown-menu {
+      a {
+        color: #2E2F30;
+      }
+      a:before {
+        border: none;
+      }
+      a:hover:before {
+        border: none;
+      }
+      a:after {
+        border: none;
+      }
+      a:hover:after {
+        border: none;
+      }
+    }
+  }
+  li {
+    a {
+      color: #fff;
+      font-weight: bold;
+    }
+    a:before {
+      content: '';
+      width: 0;
+      left: 50%;
+      bottom: -5px;
+      transition: all 0.3s ease;
+      border-bottom: 3px solid #f59088;
+      position: absolute;
+      display: block;
+    }
+    a:hover:before {
+      width: 50%;
+      border-bottom: 3px solid #f59088;
+    }
+    a:after {
+      content: '';
+      width: 0;
+      right: 50%;
+      bottom: -5px;
+      transition: all 0.3s ease;
+      border-bottom: 3px solid #f59088;
+      position: absolute;
+      display: block;
+    }
+    a:hover:after {
+      width: 50%;
+      border-bottom: 3px solid #f59088;
+    }
+  }
+}

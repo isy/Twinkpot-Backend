@@ -1,7 +1,8 @@
 <div id="app">
-  <side-menu></side-menu>
+  <%= render 'header' %>
   <div class="contents">
-    <%= render 'content_header' %>
+    <div class="contents-header">
+    </div>
     <section class="post-section">
       <h2 class="post-title">新規投稿☺️</h2>
       <%= form_for(@post, :url => photo_create_home_index_path) do |f| %>
@@ -18,7 +19,7 @@
           <i id="edit-button" class="fa fa-pencil edit-icon" aria-hidden="true"></i>
           <p>※右下のアイコンで画像を編集することができます</p>
         </div>
-        <p class="section-title">位置情報<i class="fa fa-location-arrow" aria-hidden="true"></i></p>
+        <p class="section-title">位置情報<i class="fa fa-location-arrow" aria-hidden="true"></i><span class="form-required">必須</span></p>
         <vue-google-autocomplete
           id="map"
           types="establishment"
@@ -31,7 +32,17 @@
         </vue-google-autocomplete>
         <%= f.hidden_field :place_id, ':value': 'address.place_id' %>
         <%= f.hidden_field :place_name, ':value': 'address.name' %>
+        <%= f.hidden_field :address, ':value': 'address.formatted_address' %>
+        <%= f.hidden_field :country, ':value': 'addressData.country' %>
+        <%= f.hidden_field :prefectures, ':value': 'addressData.administrative_area_level_1' %>
+        <%= f.hidden_field :city, ':value': 'addressData.locality' %>
+        <%= f.hidden_field :postal_code, ':value': 'addressData.postal_code' %>
+        <%= f.hidden_field :tel, ':value': 'address.formatted_phone_number' %>
+        <%= f.hidden_field :latitude, ':value': 'addressData.latitude' %>
+        <%= f.hidden_field :longitude, ':value': 'addressData.longitude' %>
         <%= f.hidden_field :remote_post_image_url, id:'image_src', value: '' %>
+        <p class="section-title">タグ<i class="fa fa-tags" aria-hidden="true"></i></p>
+        <ul id="tag-it"></ul>
         <p class="section-title">カテゴリ<i class="fa fa-heart" aria-hidden="true"></i><span class="form-required">必須</span></p>
         <%= f.collection_select :category_id, @categories, :id, :name %>
         <p class="section-title">キャプション<i class="fa fa-comment-o" aria-hidden="true"></i></p>
@@ -39,6 +50,7 @@
         <%= f.submit '投稿📷', class: 'post-button' %>
       <% end %>
       <div class="message is-success" v-show="address">
+        {{ addressData }}
         <div class="message-body">{{ address }}</div>
       </div>
     </section>
@@ -46,49 +58,4 @@
   </div>
 </div>
 
-
 <%= javascript_pack_tag 'post' %>
-
-<script type="text/javascript">
-    //Adobeエディターのセットアップ関数
-    function set_adbe_image(){
-        //<body>内の画像要素を取得
-        var button = document.getElementById('edit-button');
-        var image = document.getElementById('image');
-        //画像編集エディタを利用するための準備
-        var Editor = new Aviary.Feather({
-            apiKey: '8c2b5b3559be493786442e92aba0f0d0',
-            language: 'ja',
-            onSave: function(imageID, newURL) {
-                document.getElementById("image").src = newURL;
-                document.getElementById("image_src").value = newURL;
-                Editor.close();
-            }
-        });
-        //画像要素をクリックしたら、「編集エディタ」を表示
-        button.addEventListener('click', function () {
-            Editor.launch({
-                //<img>内のidとsrcを取得
-                image: image.id,
-                url: image.src
-            });
-        });
-    }
-    //エディター動作割り当てる
-    set_adbe_image();
-    //ファイル選択ボックスの処理
-    var obj1 = document.getElementById("selfile");
-    obj1.addEventListener("change", function(evt){
-        var file = evt.target.files;
-        var reader = new FileReader();
-        //dataURL形式でファイルを読み込む
-        reader.readAsDataURL(file[0]);
-        //ファイルの読込が終了した時の処理
-        reader.onload = function(){
-            var dataUrl = reader.result;
-            //読み込んだ画像とdataURLを書き出す
-//            document.getElementById("canvas").innerHTML = "<img id='image' class='oppai' src='" + dataUrl + "'>";
-//            set_adbe_image();
-        }
-    },false);
-</script>
