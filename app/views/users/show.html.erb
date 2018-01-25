@@ -4,7 +4,7 @@
     <div class="user-profile">
       <div class="user-profile-image">
         <% if @user.user_image.blank? %>
-            <%= image_tag('user/no_image_profile.jpeg', class: 'user-image') %>
+            <%= image_tag('user/no_image_profile.jpg', class: 'user-image') %>
         <% else %>
             <%= image_tag(current_user.user_image.user_profile.url, class: 'user-image') %>
         <% end %>
