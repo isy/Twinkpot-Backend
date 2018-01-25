@@ -1,5 +1,4 @@
 class Users::SessionsController < Devise::SessionsController
-  skip_before_action :authenticate_user_from_token!
 
   # before_action :configure_sign_in_params, only: [:create]
 

@@ -1,4 +1,9 @@
 ja:
+  enumerize:
+    user:
+      gender:
+        male: 男性
+        female: 女性
   attributes:
     email: メールアドレス
     password: パスワード

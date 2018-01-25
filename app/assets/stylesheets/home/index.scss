@@ -7,8 +7,10 @@
     margin: 10px 10px;
     background-color: #fff;
     border-radius: 3px;
+    position: relative;
     &:hover {
-      cursor: zoom-in;
+      cursor: pointer;
+      box-shadow: 0px 0px 5px 7px #e2e2e2;
     }
     img {
       width: 220px;
@@ -29,6 +31,26 @@
       .item-caption {
         font-weight: bold;
       }
+    }
+    .like-button {
+      position: absolute;
+      top: 5px;
+      right: 5px;
+      i {
+        font-size: 24px;
+      }
+    }
+  }
+}
+
+.like-button {
+  .like-heart {
+    color: #EB5E28;
+    font-size: 16px;
+    transition: 0.4s;
+    &:hover {
+      cursor: pointer;
+      transform: scale(1.3);
     }
   }
 }

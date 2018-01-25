@@ -1,4 +1,4 @@
-class Api::UsersController < ApplicationController
+class Api::UsersController < ApiController
   protect_from_forgery with: :null_session
   skip_before_action :authenticate_user_from_token!, only: %i(create)
 
