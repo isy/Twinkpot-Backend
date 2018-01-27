@@ -51,6 +51,9 @@ gem 'font-awesome-rails'
 gem 'carrierwave'
 gem 'rmagick'
 gem 'fog'
+
+# cloudfront
+gem 'asset_sync'
 # enum
 gem 'enumerize'
 group :development, :test do
