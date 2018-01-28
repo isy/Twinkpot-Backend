@@ -17,5 +17,6 @@ else
 
     config.fog_directory  = 'twinkpot'
     config.cache_storage = :fog
+    config.asset_host = 'https://d2s3o16np0186r.cloudfront.net/'
   end
 end
