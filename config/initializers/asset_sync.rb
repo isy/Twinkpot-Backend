@@ -12,7 +12,7 @@ if defined?(AssetSync)
 
     config.add_local_file_paths do
       Dir.chdir(Rails.root.join('public')) do
-        Dir[File.join(Webpacker::Configuration.fetch(:public_output_path), '/**/**')]
+        Dir[File.join('packs', '/**/**')]
       end
     end
   end
