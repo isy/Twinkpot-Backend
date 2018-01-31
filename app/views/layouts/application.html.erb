@@ -5,13 +5,14 @@
     <title>Twinkpot</title>
     <%= csrf_meta_tags %>
 
-    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <link href='https://fonts.googleapis.com/css?family=Roboto:300,400,500,700|Material+Icons' rel="stylesheet">
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
     <script type="text/javascript" src="https://dme0ih8comzn4.cloudfront.net/imaging/v2/editor.js"></script>
     <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDidRxloVMwFdfk0LVPKhIDVgbdi5ws4us&libraries=places"></script>
-  <link rel="manifest" href="/manifest.json" />
-<meta name="apple-mobile-web-app-capable" content="yes"></head>
+    <link rel="manifest" href="<%= asset_path 'manifest.json' %>">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+  </head>
 
   <body>
     <% if flash[:notice] %>
