@@ -10,7 +10,8 @@
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
     <script type="text/javascript" src="https://dme0ih8comzn4.cloudfront.net/imaging/v2/editor.js"></script>
     <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDidRxloVMwFdfk0LVPKhIDVgbdi5ws4us&libraries=places"></script>
-  </head>
+  <link rel="manifest" href="/manifest.json" />
+<meta name="apple-mobile-web-app-capable" content="yes"></head>
 
   <body>
     <% if flash[:notice] %>
