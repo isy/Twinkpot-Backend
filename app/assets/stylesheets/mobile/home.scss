@@ -1,0 +1,113 @@
+.m-home-contents {
+  .article-list {
+    width: 100%;
+    h3 {
+      font-size: 2vh;
+      font-weight: 600;
+      margin: 10px 0 3px 5px;
+    }
+    .post-lists {
+      display: flex;
+      width: 100%;
+      overflow: scroll;
+      background: #fff;
+      border-radius: 5px;
+      .popular-post {
+        width: 150px;
+        margin: 5px 0 0 0;
+        position: relative;
+        img {
+          width: 150px;
+          padding: 0 5px 0 5px;
+        }
+        p {
+          text-overflow: ellipsis;
+          white-space: nowrap;
+          overflow: hidden;
+          i {
+            font-weight: bold;
+            font-size: 15px;
+            color: #fdd835;
+            padding-right: 5px;
+          }
+        }
+        .like-button {
+          position: absolute;
+          top: 5px;
+          right: 10px;
+        }
+      }
+      @media screen and (min-width: 500px) {
+        .popular-post {
+          width: 250px;
+          img {
+            width: 250px;
+            padding: 0 10px 0 10px;
+          }
+          p {
+            i {
+              font-size: 20px;
+              padding-right: 10px;
+            }
+          }
+          .like-button {
+            top: 5px;
+            right: 15px;
+            i {
+              font-size: 25px;
+            }
+          }
+        }
+
+      }
+    }
+    .user-lists {
+      display: flex;
+      width: 100%;
+      overflow: scroll;
+      .user-rank {
+        margin: 0 5px 0 5px;
+        width: 20%;
+        text-align: center;
+        position: relative;
+        .rank {
+          background-color: rgb(253, 217, 52);
+          color: #fff;
+          font-size: 16px;
+          border-radius: 50%;
+          width: 20px;
+          position: absolute;
+          top: 0;
+          right: 5px;
+        }
+        img {
+          border-radius: 50%;
+          width: 100%;
+        }
+      }
+    }
+  }
+}
+
+.m-tag-rank {
+  background: #fff;
+  border-bottom: 1px solid #ddd;
+  .tag-lists {
+    width: 100%;
+    display: flex;
+    overflow: scroll;
+    margin: 0;
+    padding: 5px 0 5px 0;
+    &::-webkit-scrollbar {
+      display: none;
+    }
+    .tag {
+      background-color: #fb6257;
+      color: #fff;
+      margin: 0 3px 0 3px;
+      padding: 0 10px 0 10px;
+      border-radius: 10px;
+      word-break: keep-all;
+    }
+  }
+}
