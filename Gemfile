@@ -47,6 +47,8 @@ gem 'rack-cors'
 gem 'jp_prefecture'
 # font-awesome
 gem 'font-awesome-rails'
+# ionicons
+gem 'ionicons-rails'
 # 画像アップロード
 gem 'carrierwave'
 gem 'rmagick'

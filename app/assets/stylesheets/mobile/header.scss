@@ -1,0 +1,32 @@
+.mobile-header {
+  text-align: center;
+  background-color: #fdd835;
+  h1 {
+    font-family: Pacifico;
+    margin: 0;
+    color: #fff;
+    font-size: 4vh;
+    height: 8vh;
+    line-height: 8vh;
+  }
+}
+
+.m-footer_menu {
+  position: fixed;
+  bottom: 0;
+  background: #fff;
+  width: 100%;
+  border-top: 1px solid #ddd;
+  .m-nav {
+    display: flex;
+    justify-content: space-around;
+    margin: 0;
+    padding: 0;
+    .nav-list {
+      height: 8vh;
+      line-height: 8vh;
+      font-size: 6vh;
+      color: #464646;
+    }
+  }
+}
