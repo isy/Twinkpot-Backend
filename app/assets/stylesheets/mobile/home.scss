@@ -1,4 +1,5 @@
 .m-home-contents {
+  margin: 8vh 0 8vh 0;
   .article-list {
     width: 100%;
     h3 {
@@ -24,6 +25,7 @@
           text-overflow: ellipsis;
           white-space: nowrap;
           overflow: hidden;
+          margin-left: 5px;
           i {
             font-weight: bold;
             font-size: 15px;
