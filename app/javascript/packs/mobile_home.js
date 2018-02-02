@@ -1,7 +1,7 @@
 import Vue from 'vue/dist/vue.esm.js'
 import Router from './router/mobile_router'
+import MobileMenu from './components/mobile/MobileMenu.vue'
 import SideMenu from './components/side_menu.vue'
-import Photo_Cards from './components/home/photo_cards.vue'
 import {VueMasonryPlugin} from 'vue-masonry'
 
 Vue.use(VueMasonryPlugin)
@@ -12,8 +12,8 @@ new Vue({
     router: Router,
     el: "#app",
     components: {
+        'mobile-menu': MobileMenu,
         'side-menu': SideMenu,
-        'photo-cards': Photo_Cards
     }
 })
 

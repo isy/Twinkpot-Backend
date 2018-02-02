@@ -1,0 +1,99 @@
+.m-home-contents {
+  .select-button {
+    background: #fb6257;
+    color: #fff;
+    font-size: 7vh;
+    text-align: center;
+    width: 10vh;
+    height: 10vh;
+    border-radius: 50%;
+    position: fixed;
+    right: -1vh;
+    top: 84vh;
+  }
+  .show {
+    display: block;
+  }
+  .m-refine {
+    display: none;
+    position: fixed;
+    overflow: hidden;
+    background: #f6f6f6;
+    top: 8vh;
+    height: 84vh;
+    width: 100%;
+    z-index: 9998;
+    .close-button  {
+      position: absolute;
+      background: #aaaaaa;
+      border-radius: 50%;
+      color: #fff;
+      text-align: center;
+      width: 7vh;
+      height: 7vh;
+      font-size: 5vh;
+      bottom: 3vh;
+      left: 2vh;
+    }
+    .pref-city, .category {
+      margin: 5px 0 0 0;
+      border-top: 1px solid #dcdcdc;
+      border-bottom: 1px solid #dcdcdc;
+      background: #fff;
+    }
+    select {
+      border-radius: 0;
+      box-shadow: none;
+      border-top: none;
+      border-bottom: 1px solid #dcdcdc;
+      border-left: none;
+      border-right: none;
+      margin: 3px 0 3px 14px;
+      &:last-child {
+        border-bottom: none;
+      }
+      &:disabled {
+        background-color: #fff;
+      }
+    }
+    .refine-button {
+      width: 75%;
+      padding: 2vh;
+      text-align: center;
+      color: #fff;
+      font-size: 2vh;
+      background: #fb6257;
+      position: absolute;
+      left: 58%;
+      -webkit-transform: translate(-50%,0);
+      -moz-transform: translate(-50%,0);
+      -ms-transform: translate(-50%,0);
+      -o-transform: translate(-50%,0);
+      transform: translate(-50%,0);
+      bottom: 3vh;
+    }
+  }
+  .m-post-contents {
+    width: 100%;
+    display: flex;
+    flex-wrap: wrap;
+    .posts {
+      position: relative;
+      padding: 1px;
+      width: 33%;
+      img {
+        width: 100%;
+      }
+      .like-button {
+        position: absolute;
+        top: 1px;
+        right: 1px;
+      }
+    }
+    @media screen and (min-width: 500px){
+      .posts {
+        width: 25%;
+      }
+    }
+  }
+}
