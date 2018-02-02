@@ -1,0 +1,24 @@
+.m-home-contents {
+  .overlay-back {
+    position: fixed;
+    top: 2vh;
+    left: 10px;
+    font-size: 4vh;
+    color: #616060;
+    z-index: 10000;
+  }
+  .place-map {
+    width: 100%;
+    height: 25vh;
+  }
+  .place-info {
+    width: 100%;
+    margin: 5px 0;
+    .place-name {
+      font-size: 2.5vh;
+      font-weight: 600;
+      color: #504e4e;
+      text-align: center;
+    }
+  }
+}
