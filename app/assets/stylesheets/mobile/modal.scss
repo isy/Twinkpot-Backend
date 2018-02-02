@@ -1,0 +1,102 @@
+.m-overlay {
+  width: 100%;
+  margin: 8vh 0 8vh 0;
+  .overlay-back {
+    position: absolute;
+    top: 2vh;
+    left: 10px;
+    font-size: 4vh;
+    color: #616060;
+    z-index: 10000;
+  }
+  .panel {
+    width: 100%;
+    background-color: #fff;
+    .panel-header {
+      height: 7vh;
+      width: 100%;
+      position: relative;
+      .user_info {
+        height: 80%;
+        margin-left: 10px;
+        position: absolute;
+        top: 50%;
+        -webkit-transform: translate(0,-50%);
+        -moz-transform: translate(0,-50%);
+        -ms-transform: translate(0,-50%);
+        -o-transform: translate(0,-50%);
+        transform: translate(0,-50%);
+        img {
+          height: 100%;
+          border-radius: 50%;
+        }
+      }
+      .save-button {
+        height: 80%;
+        position: absolute;
+        margin-right: 10px;
+        top: 50%;
+        right: 0;
+        -webkit-transform: translate(0,-50%);
+        -moz-transform: translate(0,-50%);
+        -ms-transform: translate(0,-50%);
+        -o-transform: translate(0,-50%);
+        transform: translate(0,-50%);
+        background-color: #fb6257;
+        border-radius: 3px;
+        font-size:  2vh;
+        color: #fff;
+        padding: 12px;
+        font-weight: 600;
+        i {
+          margin-right: 2px;
+        }
+      }
+    }
+    .panel-contents {
+      .panel-content-image {
+        img {
+          width: 100%;
+        }
+      }
+      .panel-content-under {
+        .post-place {
+          font-size: 2.5vh;
+          margin: 5px 0 0 5px;
+          color: #fdd835;
+          .place_name {
+            margin-left: 5px;
+            font-size: 2vh;
+            color: #424242;
+          }
+        }
+        .panel-content-button {
+          margin: 0 0 10px 5px;
+          .like-button {
+            .fa-share {
+              margin: 0 0 0 5px;
+              color: #2E2F30;
+            }
+          }
+        }
+        .tag-row {
+          margin: 10px 0 0 0;
+          .tag-button {
+            color: #1b6cad;
+            &:before {
+              content: "#";
+            }
+          }
+        }
+      }
+    }
+  }
+  .itinerary-modal {
+    input {
+      border-bottom: 1px solid #ccc;
+      border-left: none;
+      border-right: none;
+      border-top: none;
+    }
+  }
+}
