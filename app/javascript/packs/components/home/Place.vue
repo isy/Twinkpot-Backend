@@ -6,6 +6,7 @@
             <div class="place-name">
                 <i class="fa fa-map-marker" aria-hidden="true"></i>
                 {{ placePosts.place_name }}
+                <p class="place-address">{{ placePosts.prefectures}}<span class="pipe">|</span>{{ placePosts.city }}</p>
             </div>
         </div>
         <div v-masonry transition-duration="0.8s" item-selector=".item" class="post-contents">
@@ -19,7 +20,6 @@
                 </router-link>
             </div>
         </div>
-        {{ placePosts }}
     </div>
 </template>
 

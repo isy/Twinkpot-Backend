@@ -13,6 +13,13 @@
       i {
         color: #fdd835;
       }
+      .place-address {
+        font-size: 14px;
+        .pipe {
+          color: #666;
+          margin: 0 3px 0 3px;
+        }
+      }
     }
   }
 }

@@ -73,7 +73,7 @@ class Api::PhotographsController < ApiController
   end
 
   def fetch_place_post
-    @place = Post.select(:place_name, :latitude, :longitude).find_by(place_name: place_name_params)
+    @place = Post.select(:place_name, :prefectures, :city, :latitude, :longitude).find_by(place_name: place_name_params)
     @posts = Post.where(place_name: place_name_params)
   end
 
