@@ -28,9 +28,9 @@
                     </div>
                     <div class="tag-row">
                         <i class="fa fa-tags" aria-hidden="true"></i>
-                        <span class="tag-button" v-for="tag in postData.tags">
+                        <router-link class="tag-button" tag="span" v-for="tag in postData.tags" :to="{ name: 'showTag', params: { name: tag.name }}">
                             {{ tag.name }}
-                        </span>
+                        </router-link>
                     </div>
                     <div class="caption">
                         <span>{{ postData.caption }}</span>
@@ -65,7 +65,6 @@
             </div>
 
             <div class="itinerary-modal-bg" v-bind:class="{show: isShow}" v-on:click="isShow=!isShow"></div>
-        <h3>{{ postData }}</h3>
     </div>
 </template>
 
