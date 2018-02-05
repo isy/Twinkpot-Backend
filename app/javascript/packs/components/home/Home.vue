@@ -95,7 +95,7 @@
                 if(post.isLike == false) {
                     axios.post('/api/photographs/post_like', {like: {post_id: post.id}}).then((response) => {
                         this.posts[index].isLike = true
-                        this.$toasted.success('いいね！しました🙆', {
+                        this.$toasted.success('いいね！しました', {
                             theme: 'bubble',
                             icon: 'check',
                             duration: 2500

@@ -104,16 +104,36 @@
                 if(this.isLike == false) {
                     axios.post('/api/photographs/post_like', {like: {post_id: this.$route.params.id}}).then((response) => {
                         this.isLike = true
+                        this.$toasted.success('いいね！しました', {
+                            theme: 'bubble',
+                            icon: 'check',
+                            duration: 2500
+                        })
                     }, (error) => {
                         console.log(error)
+                        this.$toasted.error('操作に失敗しました', {
+                            theme: 'bubble',
+                            icon: 'error',
+                            duration: 2500
+                        })
                     })
                     this.likeCount += 1
                 } else {
                     axios.delete('/api/photographs/delete_like', {params: {post_id: this.$route.params.id}}).then((response) => {
                         this.isLike = false
-                        console.log(this.isLike)
+                        this.$toasted.show('いいね！を取り消しました', {
+                            theme: 'bubble',
+                            icon: 'delete',
+                            duration: 2500
+                        })
                     }, (error) => {
                         console.log(error)
+                        this.$toasted.error('操作に失敗しました', {
+                            theme: 'bubble',
+                            icon: 'error',
+                            duration: 2500
+                        })
+
                     })
                     this.likeCount -= 1
                 }
@@ -133,6 +153,11 @@
                     console.log(response.data)
                     this.itineraries.unshift(response.data.itinerary);
                     this.itineraryName = ''
+                    this.$toasted.success('新しい旅程を作成しました', {
+                        theme: 'bubble',
+                        icon: 'save',
+                        duration: 2500
+                    })
                 }, (error) => {
                     console.log(error)
                 })
@@ -140,6 +165,11 @@
             postItineraryDetails(itinerary_id) {
                 axios.post('/api/itineraries/post_itinerary_details', {itinerary_details: {itinerary_id: itinerary_id, post_data: this.postData}}).then((response) => {
                     console.log(response.data)
+                    this.$toasted.success('保存しました', {
+                        theme: 'bubble',
+                        icon: 'save',
+                        duration: 2500
+                    })
                     this.isShow = false
                 }, (error) => {
                     console.log(error)
@@ -149,12 +179,8 @@
                 this.$router.go(-1)
             },
             maps: function() {
-                console.log("map: ", google.maps)
-                console.log(this.$refs.googleMap)
-//                this.$nextTick(() => { console.log(this.$refs.aaa) })
                 const map = new google.maps.Map(this.$refs.googleMap, {
                     center: {lat: Number(this.postData.latitude), lng: Number(this.postData.longitude)},
-//                    center: {placeId: 'ChIJj3DoguMIAWARRwmOYugj4xc' },
                     scrollwheel: false,
                     zoom: 12
                 })
