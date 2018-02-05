@@ -49,9 +49,6 @@
         <%= f.text_area :caption, class: 'form-caption', placeholder: '写真の説明を書こう🐥' %>
         <%= f.submit '投稿📷', class: 'post-button' %>
       <% end %>
-      <div class="message is-success" v-show="address">
-        <div class="message-body">{{ address }}</div>
-      </div>
     </section>
     <%= render 'content_footer' %>
   </div>
