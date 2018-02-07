@@ -10,6 +10,7 @@
     "vue-masonry": "^0.10.16",
     "vue-router": "^3.0.1",
     "vue-template-compiler": "^2.4.4",
+    "vue-toasted": "^1.1.24",
     "vuetify": "^0.17.0"
   },
   "devDependencies": {
