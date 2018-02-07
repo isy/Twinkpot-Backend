@@ -35,6 +35,9 @@
                     </a>
                     <div class="place_detail-info">
                         <h5>{{ itineraryPlace.place.place_name }}</h5>
+                        <p class="postal-code">〒{{ itineraryPlace.place.postal_code }}</p>
+                        <p class="place-address">{{ itineraryPlace.place.address }}</p>
+                        <p class="place-tel"><i class="fa fa-phone"></i>{{ itineraryPlace.place.tel }}</p>
                     </div>
                 </div>
             </div>
@@ -73,16 +76,6 @@
                     console.log(error)
                 });
             },
-//            fetchItineraryPlaces: function () {
-//                for(var i = 0; i < this.itineraries.length; i++) {
-//                    axios.get('/api/itineraries/fetch_itinerary_places', {params: {place_name: this.itineraries[i].place_name}}).then((response) => {
-//                        console.log(response.data)
-//                        this.places.push(response.data.itinerary_place)
-//                    }, (error) => {
-//                        console.log(error)
-//                    })
-//                }
-//            },
             fetchItineraryPlaces: function () {
                 let placeNames = []
                 for(var i = 0; i < this.itineraries.length; i++) {
@@ -114,7 +107,6 @@
                     zoom: 14
                 })
                 const request = {
-//                    origin: new google.maps.LatLng(35.170572,136.881936),
                     origin: new google.maps.LatLng(Number(this.itineraries[0].latitude),Number(this.itineraries[0].longitude)),
                     destination: new google.maps.LatLng(Number(this.itineraries[this.itineraries.length - 1].latitude),Number(this.itineraries[this.itineraries.length - 1].longitude)),
                     optimizeWaypoints: true,
@@ -124,7 +116,6 @@
                 const ds = new google.maps.DirectionsService()
                 const renderer = new google.maps.DirectionsRenderer({
                     map: map,
-//                    preserveViewport: true,
                 })
 
                 var dist = 0

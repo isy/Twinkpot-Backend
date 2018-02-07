@@ -95,14 +95,34 @@
                 if(post.isLike == false) {
                     axios.post('/api/photographs/post_like', {like: {post_id: post.id}}).then((response) => {
                         this.posts[index].isLike = true
+                        this.$toasted.success('いいね！しました', {
+                            theme: 'bubble',
+                            icon: 'check',
+                            duration: 2500
+                        })
                     }, (error) => {
                         console.log(error)
+                        this.$toasted.error('操作に失敗しました', {
+                            theme: 'bubble',
+                            icon: 'error',
+                            duration: 2500
+                        })
                     })
                 } else {
                     axios.delete('/api/photographs/delete_like', {params: {post_id: post.id}}).then((response) => {
                         this.posts[index].isLike = false
+                        this.$toasted.show('いいね！を取り消しました', {
+                            theme: 'bubble',
+                            icon: 'delete',
+                            duration: 2500
+                        })
                     }, (error) => {
                         console.log(error)
+                        this.$toasted.error('操作に失敗しました', {
+                            theme: 'bubble',
+                            icon: 'error',
+                            duration: 2500
+                        })
                     })
                 }
             },
