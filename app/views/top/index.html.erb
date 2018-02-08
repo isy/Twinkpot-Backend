@@ -1,34 +1,37 @@
-<%= render partial: "common/header" %>
-<div class="header-contents">
-  <div class="header-contents-center">
-    <!--<p class="hash">#twink<del>le</del>pot</p>-->
-    <p class="hash">#Let’s go wherever<del>rr</del> you want to go!</p>
-    <div class="header-contents-description">フォトジェニックな場所を見つけよう、シェアしよう</div>
-  </div>
-</div>
-<section class="about-contents">
-  <ul class="gallery">
-    <li><a href="#"><%= image_tag 'gallery_cafe.jpg', class: 'pic-1', alt: 'カフェ' %></a></li>
-    <li><a href="#"><%= image_tag 'gallery_flower.jpg', class: 'pic-2', alt: '芝桜' %></a></li>
-    <li><a href="#"><%= image_tag 'gallery_rabit.jpg', class: 'pic-3', alt: '岡崎神社' %></a></li>
-    <li><a href="#"><%= image_tag 'gallery_illumi.jpg', class: 'pic-4', alt: 'イルミネーション' %></a></li>
-  </ul>
-  <div class="card-contents">
-    <div class="panel panel-default">
-      <div class="panel-body">
-        いい感じにカードレイアウトするよ
-      </div>
-    </div>
+ <main class="top-contents">
+   <div class="inner">
+     <div class="inner-left">
+       <div class="top-logo">
+         Twinkpot
+       </div>
+       <div class="inner-text">
+         <h2>Wow, Most Instagrammable!</h2>
+         <p><span class="twink">Twinkpot</span>では「フォトジェニックな写真」から行きたい場所を見つけることができます。
+           写真から行きたい場所を見つけることに最適化されたアプリケーションです。
+         </p>
+          <div class="sign">
+            <%= link_to 'アカウントを作成', new_user_registration_path, class: 'sign-btn' %>
+            <%= link_to 'ログイン', new_user_session_path, class: 'sign-btn' %>
+          </div>
+       </div>
+     </div>
+   </div>
+   <div class="inner-curve">
 
-  </div>
-</section>
-
-<script>
-    $('.hash').t({
-        speed:180,          // タイピングスピード
-        speed_vary:false,  // 「true」にすると人間が入力しているかのように文字ごとのスピードが変わります。
-        delay:1.0,
-        blink:true,       // 「true」にするとカーソルを点滅させる事ができます。
-        tag:'span',  // テキストを囲むタグを指定します。
-    });
-</script>
+   </div>
+   <section class="top-about">
+     <figure class="site-icon">
+       <%= image_tag 'twink_logo_yellow.png', alt: 'サイトアイコン', width: '200px' %>
+     </figure>
+     <div class="info-about">
+       <h2>Twinkpot</h2>
+       <h3>フォトジェニックが見つかる</h3>
+       <p class="description-about">インスタ映えするようなフォトジェニックな写真を見つけられるアプリ、それが「Twinkpot」です。<br>
+         場所を指定しての検索が簡単に、すばやく写真を見つけるができます。また、写真からあなただけの旅行プランを<br>
+         作成することができ、フォトジェニックな旅が体験できるでしょう。
+       </p>
+       <%= link_to 'のぞいてみる', home_index_path, class: 'go-btn' %>
+     </div>
+   </section>
+   <%= render 'home/footer' %>
+ </main>
