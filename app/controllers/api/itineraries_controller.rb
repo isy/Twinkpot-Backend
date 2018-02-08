@@ -1,7 +1,7 @@
 class Api::ItinerariesController < ApiController
   protect_from_forgery with: :null_session
   skip_before_action :authenticate_user_from_token!
-  skip_before_action :verify_authenticity_token, only: %i(post_itineraries post_itinerary_details)
+  skip_before_action :verify_authenticity_token, only: %i(post_itineraries post_itinerary_details delete_itinerary_detail)
 
   def fetch_itineraries
     @itineraries = Itinerary.where(user_id: current_user.id).order('updated_at DESC')
@@ -28,6 +28,16 @@ class Api::ItinerariesController < ApiController
 
   def fetch_itinerary_details
     @itinerary_details = ItineraryDetail.where(itinerary_id: itinerary_id_param)
+  end
+
+  def delete_itinerary_detail
+    @itinerary_detail = ItineraryDetail.find(delete_itinerary_detail_params)
+
+    if @itinerary_detail.destroy
+      head :no_content
+    else
+      render json: @itinerary_detail.errors, status: :unprocessable_entity
+    end
   end
 
   def fetch_itinerary_places
@@ -62,5 +72,9 @@ class Api::ItinerariesController < ApiController
 
   def place_name_params
     params.require(:itineraries)
+  end
+
+  def delete_itinerary_detail_params
+    params.permit(:itinerary_detail_id).require(:itinerary_detail_id)
   end
 end
