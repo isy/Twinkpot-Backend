@@ -23,6 +23,12 @@
            color: #6d6d6d;
            font-size: 18px;
            font-weight: 600;
+           position: relative;
+           .edit-icon {
+             position: absolute;
+             right: 20px;
+             font-size: 24px;
+           }
            &:hover {
              cursor: pointer;
              background-color: #EEE;

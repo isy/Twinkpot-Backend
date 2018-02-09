@@ -6,6 +6,8 @@
                  <ul class="lists">
                      <router-link v-for="itinerary_list in itinerary_lists" tag="li" :to="{ name: 'itineraryMap', params: { id: itinerary_list.id }}" class="list">
                          {{ itinerary_list.itinerary_name }}
+                         <router-link tag="i" :to="{ name: 'itineraryEdit', params: { id: itinerary_list.id }}" class="fa fa-cog edit-icon">
+                         </router-link>
                      </router-link>
                  </ul>
              </div>

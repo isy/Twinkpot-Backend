@@ -29,6 +29,9 @@
           <a href="/home/post/<%= post.id %>">
           <div class="post-card">
             <%= image_tag(post.post_image.medium_square.url, class: '') %>
+            <% if @user.id == current_user.id %>
+              <%= link_to "削除", "/users/post/#{post.id}", method: :delete, data: {confirm: '本当に削除しますか？'} %>
+            <% end %>
           </div>
           </a>
       <% end %>
