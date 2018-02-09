@@ -32,12 +32,15 @@ Rails.application.routes.draw do
       get 'fetch_itinerary_lists', on: :collection
       get 'fetch_itinerary_details', on: :collection
       get 'fetch_itinerary_places', on: :collection
+      delete 'delete_itinerary_detail', on: :collection
     end
   end
 
   resources :users, param: :user_name, only: %i(show edit update) do
+    delete 'post/:id', to: 'users#post_delete', on: :collection
     get 'itinerary', on: :member
     get 'itinerary/:id', to: 'users#itinerary', on: :member
+    get 'itinerary/:id/edit', to: 'users#itinerary', on: :member
   end
   resources :home, only: %i(index new) do
     get 'tag', to: 'home#index', on: :collection
