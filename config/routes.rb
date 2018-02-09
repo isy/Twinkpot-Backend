@@ -37,6 +37,7 @@ Rails.application.routes.draw do
   end
 
   resources :users, param: :user_name, only: %i(show edit update) do
+    delete 'post/:id', to: 'users#post_delete', on: :collection
     get 'itinerary', on: :member
     get 'itinerary/:id', to: 'users#itinerary', on: :member
     get 'itinerary/:id/edit', to: 'users#itinerary', on: :member
