@@ -6,7 +6,7 @@
         <% if @user.user_image.blank? %>
             <%= image_tag('user/no_image_profile.jpg', class: 'user-image') %>
         <% else %>
-            <%= image_tag(current_user.user_image.user_profile.url, class: 'user-image') %>
+            <%= image_tag(@user.user_image.user_profile.url, class: 'user-image') %>
         <% end %>
       </div>
       <div class="user-profile-detail">
@@ -29,7 +29,7 @@
           <a href="/home/post/<%= post.id %>">
           <div class="post-card">
             <%= image_tag(post.post_image.medium_square.url, class: '') %>
-            <% if @user.id == current_user.id %>
+            <% if @user.id == current_user.try(:id) %>
               <%= link_to "削除", "/users/post/#{post.id}", method: :delete, data: {confirm: '本当に削除しますか？'} %>
             <% end %>
           </div>
