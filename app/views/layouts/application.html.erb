@@ -12,6 +12,7 @@
     <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDidRxloVMwFdfk0LVPKhIDVgbdi5ws4us&libraries=places"></script>
     <link rel="manifest" href="<%= asset_path 'manifest.json' %>">
     <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="turbolinks-cache-control" content="no-cache">
   </head>
 
   <body>
@@ -21,7 +22,7 @@
       </div>
     <% elsif flash[:error]%>
       <div class="flash error">
-        <%= flash[:notice] %>
+        <%= flash[:error] %>
       </div>
     <% end %>
     <%= yield %>
