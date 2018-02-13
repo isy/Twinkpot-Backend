@@ -1,0 +1,32 @@
+ <main class="m-top-contents">
+   <div class="inner">
+     <div class="inner-left">
+       <div class="top-logo">
+         Twinkpot
+       </div>
+       <div class="inner-text">
+         <h2>Wow, Most Instagrammable!</h2>
+         <p><span class="twink">Twinkpot</span>では「フォトジェニックな写真」から行きたい場所を見つけることができます。
+           写真から行きたい場所を見つけることに最適化されたアプリケーションです。
+         </p>
+          <div class="sign">
+            <%= link_to 'アカウントを作成', new_user_registration_path, class: 'sign-btn' %>
+            <%= link_to 'ログイン', new_user_session_path, class: 'sign-btn' %>
+          </div>
+       </div>
+     </div>
+   </div>
+
+   <section class="top-about">
+     <div class="info-about">
+       <h2>Twinkpot</h2>
+       <h3>フォトジェニックが見つかる</h3>
+       <p class="description-about">インスタ映えするようなフォトジェニックな写真を見つけられるアプリ、それが「Twinkpot」です。<br>
+         場所を指定しての検索が簡単に、すばやく写真を見つけるができます。また、写真からあなただけの旅行プランを<br>
+         作成することができ、フォトジェニックな旅が体験できるでしょう。
+       </p>
+       <%= link_to 'のぞいてみる', home_index_path, class: 'go-btn' %>
+     </div>
+   </section>
+   <%= render 'home/footer' %>
+ </main>
