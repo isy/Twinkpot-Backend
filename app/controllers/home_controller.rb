@@ -10,13 +10,14 @@ class HomeController < ApplicationController
   end
 
   def photo_create
-    if post = Post.create(photo_create_params)
+    post = Post.new(photo_create_params)
+    if post.save
       tag_first_or_create(post, tag_params) if params[:tags]
       flash[:notice] = "投稿しました😍"
       redirect_to home_index_path
     else
-      flash.now[:error] = "投稿に失敗しました😢"
-      render('posts/photo_new')
+      flash[:notice] = "投稿に失敗しました😢"
+      redirect_to photo_new_home_index_path
     end
   end
 
