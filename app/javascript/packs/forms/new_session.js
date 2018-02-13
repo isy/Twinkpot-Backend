@@ -5,7 +5,12 @@ document.addEventListener("DOMContentLoaded", () => {
         el: "#new_user",
         data: {
             user: {
-                test: "sssssss"
+                email: ""
+            }
+        },
+        computed: {
+            mailError: function() {
+                return /^[A-Za-z0-9]+[\w-]+@[\w\.-]+\.\w{2,}$/.test(this.user.email)
             }
         }
     })

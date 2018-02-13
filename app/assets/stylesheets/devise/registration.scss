@@ -36,6 +36,9 @@
       .check-field {
         margin: 10px 0;
       }
+      .form-error {
+        color: #ff3535;
+      }
       input[type="email"], input[type="password"], input[type="text"] {
         background: transparent;
         outline: none;
