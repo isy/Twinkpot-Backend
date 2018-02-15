@@ -2,7 +2,7 @@
   <ul class="m-nav">
     <router-link to="/home" tag="li" class="nav-list"><i class="ion-home" aria-hidden="true"></i></router-link>
     <router-link to="/home/all" tag="li" class="nav-list"><i class="ion-search" aria-hidden="true"></i></router-link>
-    <router-link to="/home/<%= current_user.user_name  %>/itinerary" tag="li" class="nav-list"><i class="ion-map" aria-hidden="true"></i></router-link>
+    <router-link to="/home/<%= current_user.try(:user_name)  %>/itinerary" tag="li" class="nav-list"><i class="ion-map" aria-hidden="true"></i></router-link>
     <router-link to="/home/tag" tag="li" class="nav-list"><i class="ion-pricetags" aria-hidden="true"></i></router-link>
   </ul>
 </nav>
