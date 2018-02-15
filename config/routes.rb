@@ -50,7 +50,11 @@ Rails.application.routes.draw do
     post 'photo_create', on: :collection
     get 'post/:id', to: 'home#index', on: :collection
     get 'place/:name', to: 'home#index', on: :collection
-    # get 'photo_new', :on => :member
+    # mobile
+    get ':user_name/itinerary', to: 'home#index', on: :collection
+    get ':user_name/itinerary/:id/edit', to: 'home#index', on: :collection
+    get ':user_name/itinerary/:id', to: 'home#index', on: :collection
+
   end
 
   root to: 'top#index'
