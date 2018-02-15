@@ -60,7 +60,7 @@
         components: {
             TagRank
         },
-        mounted: function () {
+        created: function () {
             this.fetchPopularPosts()
             this.fetchPosts()
             this.fetchUsers()

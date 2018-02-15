@@ -84,7 +84,7 @@
         components: {
           Modal
         },
-        mounted: function () {
+        created: function () {
             this.fetchCategory();
             this.fetchPosts();
         },
