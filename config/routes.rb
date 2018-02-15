@@ -52,6 +52,7 @@ Rails.application.routes.draw do
     get 'place/:name', to: 'home#index', on: :collection
     # mobile
     get ':user_name/itinerary', to: 'home#index', on: :collection
+    get ':user_name/itinerary/:id/edit', to: 'home#index', on: :collection
     get ':user_name/itinerary/:id', to: 'home#index', on: :collection
 
   end

@@ -8,6 +8,7 @@ import Modal from '../components/mobile/Modal.vue'
 import Place from '../components/mobile/Place.vue'
 import ItineraryList from '../components/mobile/ItineraryList.vue'
 import ItineraryMap from '../components/mobile/ItineraryMap.vue'
+import ItineraryEdit from '../components/mobile/ItineraryEdit.vue'
 
 
 Vue.use(VueRouter)
@@ -22,6 +23,8 @@ export default new VueRouter({
         { path: '/home/post/:id', name: 'showPost', component: Modal },
         { path: '/home/place/:name', name: 'place', component: Place },
         { path: '/home/:user_name/itinerary', component: ItineraryList },
+        { path: '/home/:user_name/itinerary/:id', name: 'itineraryMap', component: ItineraryMap },
+        { path: '/home/:user_name/itinerary/:id/edit', name: 'itineraryEdit', component: ItineraryEdit },
         { path: '/home/:user_name/itinerary/:id', name: 'itineraryMap', component: ItineraryMap },
     ],
 })

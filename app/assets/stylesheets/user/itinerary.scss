@@ -40,6 +40,11 @@
        }
      }
    }
+  @media screen and (max-width: 500px) {
+    .itinerary_lists-center {
+      width: 100%;
+    }
+  }
 }
 
 
