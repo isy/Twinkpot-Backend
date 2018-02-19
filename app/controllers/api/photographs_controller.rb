@@ -51,7 +51,7 @@ class Api::PhotographsController < ApiController
   end
 
   def fetch_user_rank
-    @users = User.find(Like.joins(:post).group('posts.user_id').order('count(posts.user_id) desc').limit(5).pluck(:user_id))
+    @users = User.find(Like.joins(:post).group('posts.user_id').order('count(posts.user_id) desc').limit(5).pluck('posts.user_id'))
   end
 
   def fetch_popular_posts
